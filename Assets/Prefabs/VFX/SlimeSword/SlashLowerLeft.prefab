@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2960498639459927451}
   - component: {fileID: 2960498639459927450}
-  - component: {fileID: 2960498639459927445}
   - component: {fileID: -4273294666256021366}
+  - component: {fileID: 4954232370206628798}
   m_Layer: 0
   m_Name: SlashLowerLeft
   m_TagString: Untagged
@@ -87,20 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2960498639459927445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2960498639459927444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 219e15f1567ba1d4da1e77f50078efce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 20
-  box: {fileID: 0}
 --- !u!95 &-4273294666256021366
 Animator:
   serializedVersion: 5
@@ -122,6 +108,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4954232370206628798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2960498639459927444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb18844f1594fd4795b82a42c27362e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyNow: 0
+  playerOwned: 0
 --- !u!1001 &116899525216815711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -132,6 +132,14 @@ PrefabInstance:
     - target: {fileID: 5231924083038813727, guid: 7c254a296f7754044ac017ba0c9ebe7d, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231924083038813727, guid: 7c254a296f7754044ac017ba0c9ebe7d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231924083038813727, guid: 7c254a296f7754044ac017ba0c9ebe7d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5231924083038813727, guid: 7c254a296f7754044ac017ba0c9ebe7d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -177,6 +185,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hitbox (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5231924083038813728, guid: 7c254a296f7754044ac017ba0c9ebe7d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c254a296f7754044ac017ba0c9ebe7d, type: 3}
 --- !u!4 &5261550461200315456 stripped
@@ -194,6 +206,14 @@ PrefabInstance:
     - target: {fileID: 5231924083038813727, guid: 7c254a296f7754044ac017ba0c9ebe7d, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231924083038813727, guid: 7c254a296f7754044ac017ba0c9ebe7d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231924083038813727, guid: 7c254a296f7754044ac017ba0c9ebe7d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5231924083038813727, guid: 7c254a296f7754044ac017ba0c9ebe7d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -239,6 +259,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hitbox
       objectReference: {fileID: 0}
+    - target: {fileID: 5231924083038813728, guid: 7c254a296f7754044ac017ba0c9ebe7d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c254a296f7754044ac017ba0c9ebe7d, type: 3}
 --- !u!4 &6747338327090573901 stripped
@@ -255,6 +279,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5231924083038813727, guid: 7c254a296f7754044ac017ba0c9ebe7d, type: 3}
       propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231924083038813727, guid: 7c254a296f7754044ac017ba0c9ebe7d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231924083038813727, guid: 7c254a296f7754044ac017ba0c9ebe7d, type: 3}
+      propertyPath: m_LocalScale.y
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5231924083038813727, guid: 7c254a296f7754044ac017ba0c9ebe7d, type: 3}
@@ -300,6 +332,10 @@ PrefabInstance:
     - target: {fileID: 5231924083038813728, guid: 7c254a296f7754044ac017ba0c9ebe7d, type: 3}
       propertyPath: m_Name
       value: Hitbox (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231924083038813728, guid: 7c254a296f7754044ac017ba0c9ebe7d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c254a296f7754044ac017ba0c9ebe7d, type: 3}
