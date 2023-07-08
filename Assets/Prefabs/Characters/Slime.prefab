@@ -105,7 +105,7 @@ MonoBehaviour:
   spawner: {fileID: 8943638885783673680}
   spawnPosnValue: 0.3
   attackCooldownFrames: 0
-  recoveryFrames: 0
+  recoveryFrames: 240
 --- !u!114 &1275534984499310939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,11 +426,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6acadcff5b6431429f597d2673584cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackUpperRight: {fileID: 273855306878731568, guid: eb4bddfe82e44a54691f255f231bb305, type: 3}
-  attackUpper: {fileID: 3735489692035333990, guid: 6cbdce82221de9547803400782d611cd, type: 3}
-  attackUpperLeft: {fileID: 5167966014992046394, guid: ccaccf95252b0674ea6cbdd0d5991a31, type: 3}
-  attackRight: {fileID: 52065097540304600, guid: 7ddf0b1a909e92744962f540e459a2ba, type: 3}
   attackLeft: {fileID: 8736979785937864411, guid: 497805405754845418b5a5feb0c94e51, type: 3}
-  attackLowerRight: {fileID: 3207573793748734311, guid: af0a98f0c86c21f409acddc52320188c, type: 3}
   attackLower: {fileID: 5400156491068231280, guid: ed8537ecd123f2947b2660fa368ce2e6, type: 3}
   attackLowerLeft: {fileID: 2960498639459927444, guid: fb9e9517d702e3d48b196fe90e494f40, type: 3}

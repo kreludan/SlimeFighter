@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\Characters\Character.cs" />
     <Compile Include="Assets\Scripts\Characters\Spawner.cs" />
     <Compile Include="Assets\Scripts\Attacks\Projectile.cs" />
+    <Compile Include="Assets\Debug\FrameLock.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
