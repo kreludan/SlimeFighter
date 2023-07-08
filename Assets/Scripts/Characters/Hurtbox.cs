@@ -30,7 +30,6 @@ public class Hurtbox : MonoBehaviour
             if (GetComponentInParent<Character>() != null)
             {
                 GetComponentInParent<Character>().TakeDamage(collision.GetComponentInParent<Hitbox>().damage);
-                // Debug.Log("ow " + collision.transform.parent + " " + transform.parent + " " + collision.name);
             }
 
         }

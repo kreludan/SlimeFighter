@@ -37,7 +37,7 @@ public class CharacterController : MonoBehaviour
             GetComponent<Animator>().Play("Attack");
             if(GetComponentInParent<Spawner>() != null)
             {
-                GetComponentInParent<Spawner>().SpawnAttack();
+                GetComponentInParent<Spawner>().SpawnAttack(GetComponentInParent<Character>().DirX, GetComponentInParent<Character>().DirY);
             }
         }
     }
