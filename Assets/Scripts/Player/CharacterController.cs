@@ -6,26 +6,17 @@ public class CharacterController : MonoBehaviour
     [SerializeField]
     private float universalCharacterSpeed;
 
-    public bool attacking;
-    public bool endAttackNow;
+    //public bool attacking;
+    //public bool endAttackNow;
+    public Rigidbody2D rb2d;
     
     private enum Wall { LEFT, RIGHT, UPPER, LOWER};
-
-    private Dictionary<Wall, bool> hitWall;
 
     // Start is called before the first frame update
     void Start()
     {
-        hitWall = new Dictionary<Wall, bool>
-        {
-            [Wall.LEFT] = false,
-            [Wall.RIGHT] = false,
-            [Wall.UPPER] = false,
-            [Wall.LOWER] = false
-        };
-
-        attacking = false;
-        endAttackNow = false;
+        //attacking = false;
+        //endAttackNow = false;
     }
 
     // Update is called once per frame
@@ -39,8 +30,8 @@ public class CharacterController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            attacking = true;
-            GetComponent<Animator>().Play("Attack");
+            //attacking = true;
+            //GetComponent<Animator>().Play("Attack");
             if(GetComponentInChildren<Spawner>() != null)
             {
                 GetComponentInChildren<Spawner>().SpawnAttack(GetComponentInParent<Character>().DirX, GetComponentInParent<Character>().DirY, true);
@@ -69,18 +60,12 @@ public class CharacterController : MonoBehaviour
 
         GetComponent<Character>().Orient(characterDirectionX, characterDirectionY);
         HandlePlayerAnimation(characterDirectionX, characterDirectionY);
-        if (attacking) return;
+        //if (attacking) return;
 
-        if (characterDirectionX > 0 && hitWall[Wall.RIGHT] || characterDirectionX < 0 && hitWall[Wall.LEFT])
-            characterDirectionX = 0;
+        Vector2 velocity = new Vector2(characterDirectionX * universalCharacterSpeed, characterDirectionY * universalCharacterSpeed);
 
-        if (characterDirectionY > 0 && hitWall[Wall.UPPER] || characterDirectionY < 0 && hitWall[Wall.LOWER])
-            characterDirectionY = 0;
-
-        p.x += characterDirectionX * universalCharacterSpeed;
-        p.y += characterDirectionY * universalCharacterSpeed;
-
-        transform.position = p;
+        rb2d.MovePosition(rb2d.position + velocity * Time.fixedDeltaTime);
+        transform.position = rb2d.position + velocity * Time.fixedDeltaTime;
     }
 
     private void HandlePlayerAnimation(float movementX, float movementY)
@@ -93,41 +78,6 @@ public class CharacterController : MonoBehaviour
         Character.CharState stateToUpdateTo =
             (movementX == 0 && movementY == 0) ? Character.CharState.IDLE : Character.CharState.MOVING;
 
-        if(attacking)
-        {
-            if(endAttackNow)
-            {
-                GetComponent<Character>().SetState(stateToUpdateTo);
-                attacking = false;
-                endAttackNow = false;
-            }
-            else
-            {
-                GetComponent<Character>().SetState(Character.CharState.ATTACKING);
-            }
-        }
-        else
-        {
-            GetComponent<Character>().SetState(stateToUpdateTo);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.name.Contains("LeftWall")) hitWall[Wall.LEFT] = true;
-        if (collision.name.Contains("RightWall")) hitWall[Wall.RIGHT] = true;
-        if (collision.name.Contains("UpperWall")) hitWall[Wall.UPPER] = true;
-        if (collision.name.Contains("LowerWall")) hitWall[Wall.LOWER] = true;
-
-
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.name.Contains("LeftWall")) hitWall[Wall.LEFT] = false;
-        if (collision.name.Contains("RightWall")) hitWall[Wall.RIGHT] = false;
-        if (collision.name.Contains("UpperWall")) hitWall[Wall.UPPER] = false;
-        if (collision.name.Contains("LowerWall")) hitWall[Wall.LOWER] = false;
-
+        GetComponent<Character>().SetState(stateToUpdateTo);
     }
 }

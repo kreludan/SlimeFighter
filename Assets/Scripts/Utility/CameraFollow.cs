@@ -10,13 +10,15 @@ public class CameraFollow : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(GetComponent<Camera>().orthographicSize);
         GetComponent<Camera>().orthographicSize = 2;
     }
     // Update is called once per frame
     void FixedUpdate()
     {
-        this.transform.position = new Vector3(followTransform.position.x, followTransform.position.y, this.transform.position.z);
-        
+        if(followTransform != null)
+        {
+            this.transform.position = new Vector3(followTransform.position.x, followTransform.position.y, this.transform.position.z);
+        }
+
     }
 }

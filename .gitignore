@@ -60,3 +60,5 @@ Unity-iPhone.xcodeproj/
 *.csproj.DotSettings.user
 UserSettings/Layouts/default-2022.dwlt
 *.log
+.vs/SlimeFighter/v16/.suo
+Assembly-CSharp.csproj
