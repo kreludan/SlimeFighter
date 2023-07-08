@@ -60,7 +60,7 @@ public class Character : MonoBehaviour
 
         if(state != prevState)
         {
-            Debug.Log("Went from " + prevState + " to " + state);
+            // Debug.Log("Went from " + prevState + " to " + state);
             if(state == CharState.MOVING)
             {
                 GetComponent<Animator>().Play("Move");
@@ -83,6 +83,20 @@ public class Character : MonoBehaviour
         }
 
         prevDirX = dirX;
+
+        if (currHurtRecoveryFrames > 0)
+        {
+            Color c = GetComponent<SpriteRenderer>().color;
+            c.a = 0.6f;
+            GetComponent<SpriteRenderer>().color = c;
+            currHurtRecoveryFrames -= 1;
+            if(currHurtRecoveryFrames == 0)
+            {
+                c = GetComponent<SpriteRenderer>().color;
+                c.a = 1f;
+                GetComponent<SpriteRenderer>().color = c;
+            }
+        }
 
         if (health <= 0)
         {
@@ -130,12 +144,14 @@ public class Character : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if(currHurtRecoveryFrames > 0) { return; }
         health -= 1;
         HandleHurt();
     }
 
     private void HandleHurt()
     {
+        currHurtRecoveryFrames = recoveryFrames;
         GetComponent<Animator>().Play("Hurt");
     }
 

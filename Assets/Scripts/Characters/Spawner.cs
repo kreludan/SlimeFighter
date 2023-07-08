@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject attackUpperRight;
-    public GameObject attackUpper;
-    public GameObject attackUpperLeft;
-    public GameObject attackRight;
+
     public GameObject attackLeft;
-    public GameObject attackLowerRight;
     public GameObject attackLower;
     public GameObject attackLowerLeft;
 
@@ -20,25 +16,39 @@ public class Spawner : MonoBehaviour
         
     }
 
-    public void SpawnAttack(Character.CharDirX dirX, Character.CharDirY dirY)
+    public void SpawnAttack(Character.CharDirX dirX, Character.CharDirY dirY, bool playerOwned = false)
     {
-        GameObject objectToSpawn;
-        if (dirX == Character.CharDirX.LEFT)
+        GameObject objectToSpawn = attackLower;
+        Quaternion rotationToUse = Quaternion.identity;
+        if (dirX == Character.CharDirX.NEUTRAL)
         {
-            objectToSpawn = (dirY == Character.CharDirY.UP) ? attackUpperLeft
-                : (dirY == Character.CharDirY.DOWN ? attackLowerLeft : attackLeft);
+            objectToSpawn = attackLower;
+            rotationToUse = (dirY == Character.CharDirY.DOWN) ? Quaternion.identity : Quaternion.Euler(180, 0, 0);
         }
-        else if (dirX == Character.CharDirX.RIGHT)
+        else if (dirY == Character.CharDirY.NEUTRAL)
         {
-            objectToSpawn = (dirY == Character.CharDirY.UP) ? attackUpperRight
-                : (dirY == Character.CharDirY.DOWN ? attackLowerRight : attackRight);
+            objectToSpawn = attackLeft;
+            rotationToUse = (dirX == Character.CharDirX.LEFT) ? Quaternion.identity : Quaternion.Euler(0, 180, 0);
         }
         else
         {
-            objectToSpawn = (dirY == Character.CharDirY.UP) ? attackUpper : attackLower;
+            objectToSpawn = attackLowerLeft;
+            Int32 xReflect = (dirX == Character.CharDirX.LEFT) ? 0 : 180;
+            Int32 yReflect = (dirY == Character.CharDirY.DOWN) ? 0 : 180;
+            rotationToUse = Quaternion.Euler(xReflect, yReflect, 0);
+        }
+        if(dirX == Character.CharDirX.RIGHT && dirY == Character.CharDirY.DOWN)
+        {
+            rotationToUse = Quaternion.Euler(0, 180, 0);
+        }
+        if (dirX == Character.CharDirX.LEFT && dirY == Character.CharDirY.UP)
+        {
+            rotationToUse = Quaternion.Euler(180, 0, 0);
         }
 
-        Instantiate(objectToSpawn, transform.position, Quaternion.identity);
+        GameObject newProjectile = Instantiate(objectToSpawn, transform.position, rotationToUse);
+        newProjectile.GetComponent<Projectile>().playerOwned = playerOwned;
+        // Debug.Log(newProjectile + " is player owned? " + playerOwned);
     }
 
 }
