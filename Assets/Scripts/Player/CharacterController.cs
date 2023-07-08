@@ -6,8 +6,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField]
     private float universalCharacterSpeed;
 
-    public bool attacking;
-    public bool endAttackNow;
+    //public bool attacking;
+    //public bool endAttackNow;
     public Rigidbody2D rb2d;
     
     private enum Wall { LEFT, RIGHT, UPPER, LOWER};
@@ -15,8 +15,8 @@ public class CharacterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        attacking = false;
-        endAttackNow = false;
+        //attacking = false;
+        //endAttackNow = false;
     }
 
     // Update is called once per frame
@@ -30,8 +30,8 @@ public class CharacterController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            attacking = true;
-            GetComponent<Animator>().Play("Attack");
+            //attacking = true;
+            //GetComponent<Animator>().Play("Attack");
             if(GetComponentInChildren<Spawner>() != null)
             {
                 GetComponentInChildren<Spawner>().SpawnAttack(GetComponentInParent<Character>().DirX, GetComponentInParent<Character>().DirY, true);
@@ -60,7 +60,7 @@ public class CharacterController : MonoBehaviour
 
         GetComponent<Character>().Orient(characterDirectionX, characterDirectionY);
         HandlePlayerAnimation(characterDirectionX, characterDirectionY);
-        if (attacking) return;
+        //if (attacking) return;
 
         Vector2 velocity = new Vector2(characterDirectionX * universalCharacterSpeed, characterDirectionY * universalCharacterSpeed);
 
@@ -78,22 +78,6 @@ public class CharacterController : MonoBehaviour
         Character.CharState stateToUpdateTo =
             (movementX == 0 && movementY == 0) ? Character.CharState.IDLE : Character.CharState.MOVING;
 
-        if(attacking)
-        {
-            if(endAttackNow)
-            {
-                GetComponent<Character>().SetState(stateToUpdateTo);
-                attacking = false;
-                endAttackNow = false;
-            }
-            else
-            {
-                GetComponent<Character>().SetState(Character.CharState.ATTACKING);
-            }
-        }
-        else
-        {
-            GetComponent<Character>().SetState(stateToUpdateTo);
-        }
+        GetComponent<Character>().SetState(stateToUpdateTo);
     }
 }

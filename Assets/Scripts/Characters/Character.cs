@@ -40,7 +40,7 @@ public class Character : MonoBehaviour
 
     public enum CharState
     {
-        IDLE, MOVING, ATTACKING, HURT, DEAD
+        IDLE, MOVING, HURT, DEAD
     }
 
     private CharState prevState;
