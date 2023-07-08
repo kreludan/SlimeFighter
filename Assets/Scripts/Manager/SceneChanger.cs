@@ -29,6 +29,7 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
         uiManager.BattleUI.gameObject.SetActive(false);
+        uiManager.PauseMenuUI.gameObject.SetActive(false);
         uiManager.GameOverUI.gameObject.SetActive(false);
         uiManager.MainMenuUI.gameObject.SetActive(true);
     }

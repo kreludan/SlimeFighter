@@ -9,13 +9,13 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private BattleUI battleUI;
     [SerializeField]
-    private PauseUI pauseUI;
+    private PauseMenuUI pauseMenuUI;
     [SerializeField]
     private GameOverUI gameOverUI;
 
     public MainMenuUI MainMenuUI => mainMenuUI;
     public BattleUI BattleUI => battleUI;
-    public PauseUI PauseUI => pauseUI;
+    public PauseMenuUI PauseMenuUI => pauseMenuUI;
     public GameOverUI GameOverUI => gameOverUI;
 
     // Start is called before the first frame update
@@ -27,7 +27,17 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Escape) && ( !MainMenuUI.gameObject.activeSelf || ( BattleUI.gameObject.activeSelf && !GameOverUI.gameObject.activeSelf)))
+        {
+            if (!PauseMenuUI.gameObject.activeSelf)
+            {
+                PauseMenuUI.gameObject.SetActive(true);
+            }
+            else
+            {
+                PauseMenuUI.gameObject.SetActive(false);
+            }
+        }
     }
 
     public void ActivateGameOverUI()

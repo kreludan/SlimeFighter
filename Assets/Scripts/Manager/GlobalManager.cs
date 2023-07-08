@@ -6,10 +6,13 @@ public class GlobalManager : MonoBehaviour
 {
     [SerializeField]
     private SceneChanger sceneChanger;
-    public SceneChanger SceneChanger => sceneChanger;
     [SerializeField]
     private UIManager uiManager;
+    [SerializeField]
+    private GameManager gameManager;
+    public SceneChanger SceneChanger => sceneChanger;
     public UIManager UiManager => uiManager;
+    public GameManager GameManager => gameManager;
 
     public static GlobalManager Instance;
 
