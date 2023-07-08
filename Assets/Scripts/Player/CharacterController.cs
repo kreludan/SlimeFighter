@@ -12,19 +12,9 @@ public class CharacterController : MonoBehaviour
     
     private enum Wall { LEFT, RIGHT, UPPER, LOWER};
 
-    private Dictionary<Wall, bool> hitWall;
-
     // Start is called before the first frame update
     void Start()
     {
-        hitWall = new Dictionary<Wall, bool>
-        {
-            [Wall.LEFT] = false,
-            [Wall.RIGHT] = false,
-            [Wall.UPPER] = false,
-            [Wall.LOWER] = false
-        };
-
         attacking = false;
         endAttackNow = false;
     }
@@ -72,15 +62,7 @@ public class CharacterController : MonoBehaviour
         HandlePlayerAnimation(characterDirectionX, characterDirectionY);
         if (attacking) return;
 
-        if (characterDirectionX > 0 && hitWall[Wall.RIGHT] || characterDirectionX < 0 && hitWall[Wall.LEFT])
-            characterDirectionX = 0;
-
-        if (characterDirectionY > 0 && hitWall[Wall.UPPER] || characterDirectionY < 0 && hitWall[Wall.LOWER])
-            characterDirectionY = 0;
-
         Vector2 velocity = new Vector2(characterDirectionX * universalCharacterSpeed, characterDirectionY * universalCharacterSpeed);
-        //p.x += characterDirectionX * universalCharacterSpeed;
-        //p.y += characterDirectionY * universalCharacterSpeed;
 
         rb2d.MovePosition(rb2d.position + velocity * Time.fixedDeltaTime);
         transform.position = rb2d.position + velocity * Time.fixedDeltaTime;
@@ -113,25 +95,5 @@ public class CharacterController : MonoBehaviour
         {
             GetComponent<Character>().SetState(stateToUpdateTo);
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log(collision.name);
-        if (collision.name.Contains("LeftWall")) hitWall[Wall.LEFT] = true;
-        if (collision.name.Contains("RightWall")) hitWall[Wall.RIGHT] = true;
-        if (collision.name.Contains("UpperWall")) hitWall[Wall.UPPER] = true;
-        if (collision.name.Contains("LowerWall")) hitWall[Wall.LOWER] = true;
-
-
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.name.Contains("LeftWall")) hitWall[Wall.LEFT] = false;
-        if (collision.name.Contains("RightWall")) hitWall[Wall.RIGHT] = false;
-        if (collision.name.Contains("UpperWall")) hitWall[Wall.UPPER] = false;
-        if (collision.name.Contains("LowerWall")) hitWall[Wall.LOWER] = false;
-
     }
 }
