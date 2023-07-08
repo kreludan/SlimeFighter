@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
         
     }
 
-    public void SpawnAttack(Character.CharDirX dirX, Character.CharDirY dirY)
+    public void SpawnAttack(Character.CharDirX dirX, Character.CharDirY dirY, bool playerOwned = false)
     {
         GameObject objectToSpawn;
         if (dirX == Character.CharDirX.LEFT)
@@ -38,7 +38,9 @@ public class Spawner : MonoBehaviour
             objectToSpawn = (dirY == Character.CharDirY.UP) ? attackUpper : attackLower;
         }
 
-        Instantiate(objectToSpawn, transform.position, Quaternion.identity);
+        GameObject newProjectile = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
+        newProjectile.GetComponent<Projectile>().playerOwned = playerOwned;
+        // Debug.Log(newProjectile + " is player owned? " + playerOwned);
     }
 
 }

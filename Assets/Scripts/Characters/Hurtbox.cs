@@ -22,15 +22,22 @@ public class Hurtbox : MonoBehaviour
         {
             return;
         }
-        if ((collision.name.Contains("Hitbox")) &&
-            (collision.transform.parent.name.Contains("Player") && !transform.parent.name.Contains("Player")) ||
-            (!collision.transform.parent.name.Contains("Player") && transform.parent.name.Contains("Player")))
+        // Damage dealing: (1) Player projectile hits enemy. (2) Enemy anything hits player.
+        bool playerProjectileHitsEnemy =
+            collision.transform.parent.GetComponent<Projectile>() != null &&
+            collision.transform.parent.GetComponent<Projectile>().playerOwned &&
+            !transform.parent.name.Contains("Player");
+        bool enemyAnythingHitsPlayer =
+            (collision.transform.parent.GetComponent<Projectile>() == null ||
+            !collision.transform.parent.GetComponent<Projectile>().playerOwned) &&
+            transform.parent.name.Contains("Player");
+
+        if (collision.name.Contains("Hitbox") && (playerProjectileHitsEnemy || enemyAnythingHitsPlayer))
         {
             if (GetComponentInParent<Character>() != null && collision.GetComponentInParent<Hitbox>() != null)
             {
                 GetComponentInParent<Character>().TakeDamage(collision.GetComponentInParent<Hitbox>().damage);
             }
-
         }
     }
 }

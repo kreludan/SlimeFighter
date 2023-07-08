@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -44,7 +43,7 @@ public class CharacterController : MonoBehaviour
             GetComponent<Animator>().Play("Attack");
             if(GetComponentInChildren<Spawner>() != null)
             {
-                GetComponentInChildren<Spawner>().SpawnAttack(GetComponentInParent<Character>().DirX, GetComponentInParent<Character>().DirY);
+                GetComponentInChildren<Spawner>().SpawnAttack(GetComponentInParent<Character>().DirX, GetComponentInParent<Character>().DirY, true);
             }
         }
     }
