@@ -18,7 +18,7 @@ public class Hurtbox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision + " " + transform.parent);
+        //Debug.Log(collision + " " + transform.parent);
         if(collision.transform.parent == transform.parent || collision.transform.parent == null)
         {
             return;

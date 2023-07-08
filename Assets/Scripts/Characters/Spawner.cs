@@ -22,7 +22,6 @@ public class Spawner : MonoBehaviour
 
     public void SpawnAttack(Character.CharDirX dirX, Character.CharDirY dirY)
     {
-        Debug.Log("WA");
         GameObject objectToSpawn;
         if (dirX == Character.CharDirX.LEFT)
         {

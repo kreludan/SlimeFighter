@@ -6,6 +6,9 @@ public class CharacterController : MonoBehaviour
 {
     [SerializeField]
     private float universalCharacterSpeed;
+
+    public bool attacking;
+    public bool endAttackNow;
     
     private enum Wall { LEFT, RIGHT, UPPER, LOWER};
 
@@ -21,6 +24,9 @@ public class CharacterController : MonoBehaviour
             [Wall.UPPER] = false,
             [Wall.LOWER] = false
         };
+
+        attacking = false;
+        endAttackNow = false;
     }
 
     // Update is called once per frame
@@ -32,17 +38,13 @@ public class CharacterController : MonoBehaviour
 
     private void HandleAttack()
     {
-        if (Input.GetKey(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
+            attacking = true;
             GetComponent<Animator>().Play("Attack");
             if(GetComponentInChildren<Spawner>() != null)
             {
-                Debug.Log("hi");
                 GetComponentInChildren<Spawner>().SpawnAttack(GetComponentInParent<Character>().DirX, GetComponentInParent<Character>().DirY);
-            }
-            else
-            {
-                Debug.Log("WAAAH");
             }
         }
     }
@@ -67,6 +69,7 @@ public class CharacterController : MonoBehaviour
         }
 
         GetComponent<Character>().Orient(characterDirectionX, characterDirectionY);
+        HandlePlayerAnimation(characterDirectionX, characterDirectionY);
 
         if (characterDirectionX > 0 && hitWall[Wall.RIGHT] || characterDirectionX < 0 && hitWall[Wall.LEFT])
             characterDirectionX = 0;
@@ -78,6 +81,30 @@ public class CharacterController : MonoBehaviour
         p.y += characterDirectionY * universalCharacterSpeed;
 
         transform.position = p;
+    }
+
+    private void HandlePlayerAnimation(float movementX, float movementY)
+    {
+        Character.CharState stateToUpdateTo =
+            (movementX == 0 && movementY == 0) ? Character.CharState.IDLE : Character.CharState.MOVING;
+
+        if(attacking)
+        {
+            if(endAttackNow)
+            {
+                GetComponent<Character>().SetState(stateToUpdateTo);
+                attacking = false;
+                endAttackNow = false;
+            }
+            else
+            {
+                GetComponent<Character>().SetState(Character.CharState.ATTACKING);
+            }
+        }
+        else
+        {
+            GetComponent<Character>().SetState(stateToUpdateTo);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

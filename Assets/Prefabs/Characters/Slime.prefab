@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: cee1b653b225fe54695a04a713f301cf, type: 3}
+  m_Sprite: {fileID: 5463189583543264802, guid: 58de3550442aeb44abc1cc6dcc2dd1a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,7 +104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   spawner: {fileID: 8943638885783673680}
-  spawnPosnValue: 0.4
+  spawnPosnValue: 0.3
+  attackCooldownFrames: 0
 --- !u!114 &1275534984499310939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   universalCharacterSpeed: 0.005
+  attacking: 0
+  endAttackNow: 0
 --- !u!61 &1275534984499310940
 BoxCollider2D:
   m_ObjectHideFlags: 0

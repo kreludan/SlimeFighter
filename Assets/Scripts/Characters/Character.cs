@@ -13,6 +13,9 @@ public class Character : MonoBehaviour
     [SerializeField]
     private float spawnPosnValue;
 
+    [SerializeField]
+    private int attackCooldownFrames;
+
     public enum CharDirX
     {
         LEFT, RIGHT, NEUTRAL
@@ -27,11 +30,21 @@ public class Character : MonoBehaviour
     private CharDirY dirY;
     public CharDirY DirY => dirY;
 
+    public enum CharState
+    {
+        IDLE, MOVING, ATTACKING
+    }
+
+    private CharState prevState;
+    private CharState state;
+
     // Start is called before the first frame update
     void Start()
     {
         dirX = CharDirX.RIGHT;
         dirY = CharDirY.NEUTRAL;
+
+        prevState = CharState.IDLE;
     }
 
     // Update is called once per frame
@@ -39,11 +52,23 @@ public class Character : MonoBehaviour
     {
         if(spawner) UpdateSpawnerPosition();
 
+        if(state != prevState)
+        {
+            Debug.Log("Went from " + prevState + " to " + state);
+        }
+
+        prevState = state;
+
         if (health <= 0)
         {
             Destroy(gameObject);
             Debug.Log(gameObject.name + " Died ):");
         }
+    }
+
+    public void SetState(CharState newState)
+    {
+        state = newState;
     }
 
     private void UpdateSpawnerPosition()
@@ -81,7 +106,12 @@ public class Character : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        Debug.Log(health);
+        //Debug.Log(health);
+    }
+
+    private void EndAttack()
+    {
+
     }
 
 }
