@@ -9,6 +9,9 @@ public class Character : MonoBehaviour
     private GameObject spawner;
 
     [SerializeField]
+    private GameObject hurtbox;
+
+    [SerializeField]
     private float spawnPosnValue;
 
     [SerializeField]
@@ -57,6 +60,7 @@ public class Character : MonoBehaviour
     void Update()
     {
         if(spawner) UpdateSpawnerPosition();
+        UpdateHurtboxPosition();
 
         if(state != prevState)
         {
@@ -110,6 +114,13 @@ public class Character : MonoBehaviour
         state = newState;
     }
 
+    private void UpdateHurtboxPosition()
+    {
+        if(hurtbox != null)
+        {
+            hurtbox.transform.localPosition = Vector3.zero;
+        }
+    }
     private void UpdateSpawnerPosition()
     {
         Vector3 spawnerPosn = new Vector3();

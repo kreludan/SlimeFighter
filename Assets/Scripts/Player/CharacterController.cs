@@ -8,6 +8,7 @@ public class CharacterController : MonoBehaviour
 
     public bool attacking;
     public bool endAttackNow;
+    public Rigidbody2D rb2d;
     
     private enum Wall { LEFT, RIGHT, UPPER, LOWER};
 
@@ -77,10 +78,12 @@ public class CharacterController : MonoBehaviour
         if (characterDirectionY > 0 && hitWall[Wall.UPPER] || characterDirectionY < 0 && hitWall[Wall.LOWER])
             characterDirectionY = 0;
 
-        p.x += characterDirectionX * universalCharacterSpeed;
-        p.y += characterDirectionY * universalCharacterSpeed;
+        Vector2 velocity = new Vector2(characterDirectionX * universalCharacterSpeed, characterDirectionY * universalCharacterSpeed);
+        //p.x += characterDirectionX * universalCharacterSpeed;
+        //p.y += characterDirectionY * universalCharacterSpeed;
 
-        transform.position = p;
+        rb2d.MovePosition(rb2d.position + velocity * Time.fixedDeltaTime);
+        transform.position = rb2d.position + velocity * Time.fixedDeltaTime;
     }
 
     private void HandlePlayerAnimation(float movementX, float movementY)
@@ -114,6 +117,7 @@ public class CharacterController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.name);
         if (collision.name.Contains("LeftWall")) hitWall[Wall.LEFT] = true;
         if (collision.name.Contains("RightWall")) hitWall[Wall.RIGHT] = true;
         if (collision.name.Contains("UpperWall")) hitWall[Wall.UPPER] = true;
