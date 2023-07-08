@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8af80b1e9ba535e489c1fbc8384971e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  universalCharacterSpeed: 0.01
+  universalCharacterSpeed: 0.005
 --- !u!61 &1275534984499310940
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -411,6 +411,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9081387151522702202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8943638885783673680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6acadcff5b6431429f597d2673584cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackUpperRight: {fileID: 271958176708954895, guid: dac088547d49cd24db1321c604b6c419, type: 3}
+  attackUpper: {fileID: 271958176708954895, guid: dac088547d49cd24db1321c604b6c419, type: 3}
+  attackUpperLeft: {fileID: 271958176708954895, guid: dac088547d49cd24db1321c604b6c419, type: 3}
+  attackRight: {fileID: 271958176708954895, guid: dac088547d49cd24db1321c604b6c419, type: 3}
+  attackLeft: {fileID: 271958176708954895, guid: dac088547d49cd24db1321c604b6c419, type: 3}
+  attackLowerRight: {fileID: 271958176708954895, guid: dac088547d49cd24db1321c604b6c419, type: 3}
+  attackLower: {fileID: 271958176708954895, guid: dac088547d49cd24db1321c604b6c419, type: 3}
+  attackLowerLeft: {fileID: 271958176708954895, guid: dac088547d49cd24db1321c604b6c419, type: 3}
 --- !u!1001 &5154202923462713983
 PrefabInstance:
   m_ObjectHideFlags: 0
