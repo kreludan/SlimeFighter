@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+    private UIManager uiManager;
     // Start is called before the first frame update
     void Start()
     {
-
+        uiManager = GlobalManager.Instance.UiManager;
     }
 
     // Update is called once per frame
@@ -20,7 +21,8 @@ public class SceneChanger : MonoBehaviour
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
-        GlobalManager.Instance.UiManager.MainMenuUI.SetActive(false);
+        uiManager.MainMenuUI.gameObject.SetActive(false);
+        uiManager.BattleUI.gameObject.SetActive(true);
     }
 
     public void QuitGame()

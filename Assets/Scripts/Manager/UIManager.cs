@@ -5,8 +5,12 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject mainMenuUI;
-    public GameObject MainMenuUI => mainMenuUI;
+    private MainMenuUI mainMenuUI;
+    public MainMenuUI MainMenuUI => mainMenuUI;
+
+    [SerializeField]
+    private BattleUI battleUI;
+    public BattleUI BattleUI => battleUI;
 
     // Start is called before the first frame update
     void Start()
