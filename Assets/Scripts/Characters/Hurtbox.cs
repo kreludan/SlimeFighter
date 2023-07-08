@@ -27,7 +27,7 @@ public class Hurtbox : MonoBehaviour
             (collision.transform.parent.name.Contains("Player") && !transform.parent.name.Contains("Player")) ||
             (!collision.transform.parent.name.Contains("Player") && transform.parent.name.Contains("Player")))
         {
-            if (GetComponentInParent<Character>() != null)
+            if (GetComponentInParent<Character>() != null && collision.GetComponentInParent<Hitbox>() != null)
             {
                 GetComponentInParent<Character>().TakeDamage(collision.GetComponentInParent<Hitbox>().damage);
             }
