@@ -63,7 +63,8 @@
     <Compile Include="Assets\Scripts\Characters\Character.cs" />
     <Compile Include="Assets\Scripts\Characters\Spawner.cs" />
     <Compile Include="Assets\Scripts\Attacks\Projectile.cs" />
-    <Compile Include="Assets\Debug\FrameLock.cs" />
+    <Compile Include="Assets\Scripts\Utility\FrameLock.cs" />
+    <Compile Include="Assets\Scripts\Utility\CameraFollow.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
