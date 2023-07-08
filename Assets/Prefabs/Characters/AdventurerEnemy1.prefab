@@ -104,10 +104,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2147515743384985419}
   - component: {fileID: 2147515743384985418}
-  - component: {fileID: 2147515743384985417}
   - component: {fileID: 2147515743384985416}
   - component: {fileID: 2147515743384985415}
   - component: {fileID: 2147515743384985414}
+  - component: {fileID: 6202511368061430281}
   m_Layer: 0
   m_Name: AdventurerEnemy1
   m_TagString: Untagged
@@ -182,24 +182,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2147515743384985417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2147515743384985413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c47516cb867d18a489af0868a00282d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1
-  spawner: {fileID: 0}
-  hurtbox: {fileID: 2147515743416389047}
-  spawnPosnValue: 0
-  attackCooldownFrames: 0
-  recoveryFrames: 0
 --- !u!61 &2147515743384985416
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -268,6 +250,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6202511368061430281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147515743384985413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf34a7c02c289542af58f2d16d4c77d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  spawner: {fileID: 0}
+  hurtbox: {fileID: 2147515743416389047}
+  spawnPosnValue: 0
+  attackCooldownFrames: 0
+  recoveryFrames: 0
+  characterSpeed: 1
+  rb2d: {fileID: 2147515743384985415}
+  hitbox: {fileID: 2147515742216974341}
 --- !u!1 &2147515743416389047
 GameObject:
   m_ObjectHideFlags: 0

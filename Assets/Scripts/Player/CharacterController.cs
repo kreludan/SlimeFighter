@@ -5,12 +5,8 @@ public class CharacterController : MonoBehaviour
 {
     [SerializeField]
     private float universalCharacterSpeed;
-
-    //public bool attacking;
-    //public bool endAttackNow;
     public Rigidbody2D rb2d;
     
-    private enum Wall { LEFT, RIGHT, UPPER, LOWER};
 
     // Start is called before the first frame update
     void Start()

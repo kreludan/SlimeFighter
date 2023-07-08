@@ -289,6 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c47516cb867d18a489af0868a00282d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 1
   health: 3
   spawner: {fileID: 5099407187241979241}
   hurtbox: {fileID: 5099407186668737634}

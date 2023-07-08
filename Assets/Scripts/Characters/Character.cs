@@ -3,6 +3,9 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     [SerializeField]
+    private bool isPlayer = false;
+
+    [SerializeField]
     private int health;
 
     [SerializeField]
@@ -57,7 +60,7 @@ public class Character : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         if(spawner) UpdateSpawnerPosition();
         UpdateHurtboxPosition();
@@ -106,7 +109,10 @@ public class Character : MonoBehaviour
         {
             Destroy(gameObject);
             Debug.Log(gameObject.name + " Died ):");
-            GlobalManager.Instance.UiManager.ActivateGameOverUI();
+            if(isPlayer)
+            {
+                GlobalManager.Instance.UiManager.ActivateGameOverUI();
+            }
         }
     }
 
@@ -157,7 +163,10 @@ public class Character : MonoBehaviour
     public void TakeDamage(int damage)
     {
         if(currHurtRecoveryFrames > 0) { return; }
-        GlobalManager.Instance.UiManager.BattleUI.HealthUpdate(health);
+        if(isPlayer)
+        {
+            GlobalManager.Instance.UiManager.BattleUI.HealthUpdate(health);
+        }
         health -= 1;
         HandleHurt();
     }
