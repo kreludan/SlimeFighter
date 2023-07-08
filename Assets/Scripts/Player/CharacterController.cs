@@ -32,7 +32,7 @@ public class CharacterController : MonoBehaviour
 
     private void HandleAttack()
     {
-        if (Input.GetKey(KeyCode.L))
+        if (Input.GetKey(KeyCode.Return))
         {
             GetComponent<Animator>().Play("Attack");
         }
