@@ -70,6 +70,7 @@ public class CharacterController : MonoBehaviour
 
         GetComponent<Character>().Orient(characterDirectionX, characterDirectionY);
         HandlePlayerAnimation(characterDirectionX, characterDirectionY);
+        if (attacking) return;
 
         if (characterDirectionX > 0 && hitWall[Wall.RIGHT] || characterDirectionX < 0 && hitWall[Wall.LEFT])
             characterDirectionX = 0;
@@ -85,6 +86,11 @@ public class CharacterController : MonoBehaviour
 
     private void HandlePlayerAnimation(float movementX, float movementY)
     {
+        if(GetComponent<Character>().CurrState == Character.CharState.HURT)
+        {
+            return;
+        }
+
         Character.CharState stateToUpdateTo =
             (movementX == 0 && movementY == 0) ? Character.CharState.IDLE : Character.CharState.MOVING;
 
@@ -113,6 +119,7 @@ public class CharacterController : MonoBehaviour
         if (collision.name.Contains("RightWall")) hitWall[Wall.RIGHT] = true;
         if (collision.name.Contains("UpperWall")) hitWall[Wall.UPPER] = true;
         if (collision.name.Contains("LowerWall")) hitWall[Wall.LOWER] = true;
+
 
     }
 

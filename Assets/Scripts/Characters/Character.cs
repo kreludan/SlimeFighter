@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -16,6 +14,10 @@ public class Character : MonoBehaviour
     [SerializeField]
     private int attackCooldownFrames;
 
+    [SerializeField]
+    private int recoveryFrames;
+    public int RecoveryFrames => recoveryFrames;
+
     public enum CharDirX
     {
         LEFT, RIGHT, NEUTRAL
@@ -31,13 +33,16 @@ public class Character : MonoBehaviour
     private CharDirY dirY;
     public CharDirY DirY => dirY;
 
+    private int currHurtRecoveryFrames;
+
     public enum CharState
     {
-        IDLE, MOVING, ATTACKING
+        IDLE, MOVING, ATTACKING, HURT, DEAD
     }
 
     private CharState prevState;
     private CharState state;
+    public CharState CurrState => state;
 
     // Start is called before the first frame update
     void Start()
@@ -125,13 +130,13 @@ public class Character : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        //Debug.Log(health);
+        health -= 1;
+        HandleHurt();
     }
 
-    private void EndAttack()
+    private void HandleHurt()
     {
-
+        GetComponent<Animator>().Play("Hurt");
     }
 
 }
