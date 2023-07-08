@@ -13,18 +13,19 @@ public class Character : MonoBehaviour
     [SerializeField]
     private float spawnPosnValue;
 
-    private enum CharDirX
+    public enum CharDirX
     {
         LEFT, RIGHT, NEUTRAL
     }
-    private enum CharDirY
+    public enum CharDirY
     {
         UP, DOWN, NEUTRAL
     }
 
     private CharDirX dirX;
+    public CharDirX DirX => dirX;
     private CharDirY dirY;
-
+    public CharDirY DirY => dirY;
 
     // Start is called before the first frame update
     void Start()

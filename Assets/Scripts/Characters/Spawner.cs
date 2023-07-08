@@ -4,17 +4,25 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    GameObject attackToSpawn;
+    public GameObject attackUpperRight;
+    public GameObject attackUpper;
+    public GameObject attackUpperLeft;
+    public GameObject attackRight;
+    public GameObject attackLeft;
+    public GameObject attackLowerRight;
+    public GameObject attackLower;
+    public GameObject attackLowerLeft;
 
     // Start is called before the first frame update
     void Start()
     {
+
         
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void SpawnAttack()
     {
-        
     }
+
 }

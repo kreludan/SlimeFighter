@@ -35,6 +35,10 @@ public class CharacterController : MonoBehaviour
         if (Input.GetKey(KeyCode.Return))
         {
             GetComponent<Animator>().Play("Attack");
+            if(GetComponentInParent<Spawner>() != null)
+            {
+                GetComponentInParent<Spawner>().SpawnAttack();
+            }
         }
     }
 
