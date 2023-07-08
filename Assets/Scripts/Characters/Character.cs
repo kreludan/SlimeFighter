@@ -25,6 +25,7 @@ public class Character : MonoBehaviour
         UP, DOWN, NEUTRAL
     }
 
+    private CharDirX prevDirX;
     private CharDirX dirX;
     public CharDirX DirX => dirX;
     private CharDirY dirY;
@@ -41,7 +42,7 @@ public class Character : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dirX = CharDirX.RIGHT;
+        dirX = CharDirX.LEFT;
         dirY = CharDirY.NEUTRAL;
 
         prevState = CharState.IDLE;
@@ -55,9 +56,28 @@ public class Character : MonoBehaviour
         if(state != prevState)
         {
             Debug.Log("Went from " + prevState + " to " + state);
+            if(state == CharState.MOVING)
+            {
+                GetComponent<Animator>().Play("Move");
+            }
+            else if(state == CharState.IDLE)
+            {
+                GetComponent<Animator>().Play("Idle");
+            }
         }
 
         prevState = state;
+
+        if(dirX == CharDirX.LEFT)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if(dirX == CharDirX.RIGHT)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+
+        prevDirX = dirX;
 
         if (health <= 0)
         {
