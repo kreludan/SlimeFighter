@@ -302,6 +302,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520a3f9b270314f4f9847f7d930c584e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 5099407188241181806, guid: 6928a354cc73d8b49a03277d84bad4a0, type: 3}
+  playerSpawner: {x: 0, y: 0, z: 0}
+  enemy: {fileID: 2147515743384985413, guid: f75f13bf099d4e54bb0b33b57ed71190, type: 3}
 --- !u!1 &984693267492145905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,6 +1327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 651666ac3041550438a497346cdde29d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startButton: {fileID: 0}
 --- !u!1 &5938199615668953131
 GameObject:
   m_ObjectHideFlags: 0

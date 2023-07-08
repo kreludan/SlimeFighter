@@ -6,6 +6,7 @@ public class BattleUI : MonoBehaviour
 {
     [SerializeField]
     private GameObject healthBar;
+    public GameObject HealthBar => healthBar;
     private const int MAX_HEALTH = 3;
     // Start is called before the first frame update
     void Start()
