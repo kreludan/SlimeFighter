@@ -8,7 +8,7 @@ public class Character : MonoBehaviour
     private int health;
 
     [SerializeField]
-    private GameObject spawner;
+    private GameObject attackSpawner;
 
     [SerializeField]
     private float spawnPosnValue;
@@ -37,7 +37,7 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(spawner) UpdateSpawnerPosition();
+        if(attackSpawner) UpdateAttackSpawnerPosition();
 
         if (health <= 0)
         {
@@ -46,7 +46,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    private void UpdateSpawnerPosition()
+    private void UpdateAttackSpawnerPosition()
     {
         Vector3 spawnerPosn = new Vector3();
         spawnerPosn.x = dirX switch
@@ -61,7 +61,7 @@ public class Character : MonoBehaviour
             CharDirY.DOWN => -spawnPosnValue,
             _ => 0
         };
-        spawner.transform.localPosition = spawnerPosn;
+        attackSpawner.transform.localPosition = spawnerPosn;
     }
 
     public void Orient(float xOrient, float yOrient)

@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject attackUpperRight;
-    public GameObject attackUpper;
     public GameObject attackUpperLeft;
-    public GameObject attackRight;
+    public GameObject attackUpper;
+    public GameObject attackUpperRight;
     public GameObject attackLeft;
-    public GameObject attackLowerRight;
-    public GameObject attackLower;
+    public GameObject attackRight;
     public GameObject attackLowerLeft;
+    public GameObject attackLower;
+    public GameObject attackLowerRight;
 
     // Start is called before the first frame update
     void Start()
     {
 
-        
     }
 
     public void SpawnAttack(Character.CharDirX dirX, Character.CharDirY dirY)
@@ -37,6 +36,6 @@ public class Spawner : MonoBehaviour
         {
             objectToSpawn = (dirY == Character.CharDirY.UP) ? attackUpper : attackLower;
         }
+        Instantiate(objectToSpawn, transform.position, Quaternion.identity);
     }
-
 }

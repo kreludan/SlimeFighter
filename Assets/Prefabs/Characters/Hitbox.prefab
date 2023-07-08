@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5231924083038813726}
   - component: {fileID: 5231924083038813725}
   - component: {fileID: 231301589172710886}
+  - component: {fileID: 2455416738553956348}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Untagged
@@ -94,3 +95,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 24
   box: {fileID: 5231924083038813725}
+--- !u!114 &2455416738553956348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5231924083038813728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6acadcff5b6431429f597d2673584cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackUpperRight: {fileID: 0}
+  attackUpper: {fileID: 0}
+  attackUpperLeft: {fileID: 0}
+  attackRight: {fileID: 0}
+  attackLeft: {fileID: 0}
+  attackLowerRight: {fileID: 0}
+  attackLower: {fileID: 0}
+  attackLowerLeft: {fileID: 0}
