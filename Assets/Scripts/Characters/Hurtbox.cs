@@ -18,11 +18,12 @@ public class Hurtbox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name.Contains("Hitbox") && collision.transform.parent != transform.parent)
+        if (collision.name.Contains("Hitbox") &&
+            (collision.transform.parent.name.Contains("Player") && !transform.parent.name.Contains("Player")) ||
+            (!collision.transform.parent.name.Contains("Player") && transform.parent.name.Contains("Player")))
         {
             GetComponentInParent<Character>().TakeDamage(collision.GetComponentInParent<Hitbox>().damage);
-            Debug.Log("ow " + collision.transform.parent + " " + transform.parent);
+            Debug.Log("ow " + collision.transform.parent + " " + transform.parent + " " + collision.name);
         }
     }
-
 }
