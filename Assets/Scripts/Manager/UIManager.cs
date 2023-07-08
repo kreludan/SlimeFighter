@@ -6,11 +6,17 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField]
     private MainMenuUI mainMenuUI;
-    public MainMenuUI MainMenuUI => mainMenuUI;
-
     [SerializeField]
     private BattleUI battleUI;
+    [SerializeField]
+    private PauseUI pauseUI;
+    [SerializeField]
+    private GameOverUI gameOverUI;
+
+    public MainMenuUI MainMenuUI => mainMenuUI;
     public BattleUI BattleUI => battleUI;
+    public PauseUI PauseUI => pauseUI;
+    public GameOverUI GameOverUI => gameOverUI;
 
     // Start is called before the first frame update
     void Start()
@@ -22,5 +28,10 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ActivateGameOverUI()
+    {
+        gameOverUI.gameObject.SetActive(true);
     }
 }

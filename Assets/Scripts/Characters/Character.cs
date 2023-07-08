@@ -106,6 +106,7 @@ public class Character : MonoBehaviour
         {
             Destroy(gameObject);
             Debug.Log(gameObject.name + " Died ):");
+            GlobalManager.Instance.UiManager.ActivateGameOverUI();
         }
     }
 

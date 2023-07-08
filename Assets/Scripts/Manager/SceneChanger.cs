@@ -18,11 +18,19 @@ public class SceneChanger : MonoBehaviour
         
     }
 
-    public void ChangeScene(string sceneName)
+    public void ChangeToBattleScene()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene("BattleScene");
         uiManager.MainMenuUI.gameObject.SetActive(false);
         uiManager.BattleUI.gameObject.SetActive(true);
+    }
+
+    public void ChangeToMainMenuScene()
+    {
+        SceneManager.LoadScene("MainMenu");
+        uiManager.BattleUI.gameObject.SetActive(false);
+        uiManager.GameOverUI.gameObject.SetActive(false);
+        uiManager.MainMenuUI.gameObject.SetActive(true);
     }
 
     public void QuitGame()

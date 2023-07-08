@@ -4,20 +4,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MainMenuUI : MonoBehaviour
+public class GameOverUI : MonoBehaviour
 {
     [SerializeField]
     private Button startButton;
 
     private GameObject lastSelection;
-    // Start is called before the first frame update
-    void Start()
-    {
-        //EventSystem.current.SetSelectedGameObject(startButton.gameObject);
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
-    }
-
     private void OnEnable()
     {
         EventSystem.current.SetSelectedGameObject(startButton.gameObject);
