@@ -1,0 +1,63 @@
+# Auto detect text files and perform line ending normalization
+* text=auto
+
+# Unity-specific attributes
+*.cginc text
+*.shader text
+*.shadergraph text
+*.compute text
+*.compute.hlsl text
+*.hlsl text
+*.cg text
+*.asset text
+
+# Force text serialization for all assets
+*.mat merge=unityyamlmerge 
+*.anim merge=unityyamlmerge 
+*.unity merge=unityyamlmerge 
+*.prefab merge=unityyamlmerge 
+*.physicsMaterial2D merge=unityyamlmerge 
+*.physicMaterial merge=unityyamlmerge 
+*.asset merge=unityyamlmerge 
+*.meta merge=unityyamlmerge 
+*.controller merge=unityyamlmerge 
+
+## git-lfs ##
+
+#Image
+*.jpg -text
+*.jpeg -text
+*.png -text
+*.gif -text
+*.psd -text
+*.ai -text
+*.tif -text
+
+#Audio
+*.mp3 -text
+*.wav -text
+*.ogg -text
+
+#Video
+*.mp4 -text
+*.mov -text
+
+#3D Object
+*.FBX -text
+*.fbx -text
+*.blend -text
+*.obj -text
+
+#ETC
+*.a -text
+*.exr -text
+*.tga -text
+*.pdf -text
+*.zip -text
+*.dll -text
+*.unitypackage -text
+*.aif -text
+*.ttf -text
+*.rns -text
+*.reason -text
+*.lxo -text
