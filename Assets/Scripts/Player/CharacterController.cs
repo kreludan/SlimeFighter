@@ -57,7 +57,7 @@ public class CharacterController : MonoBehaviour
             characterDirectionY *= rad2Over2;
         }
 
-
+        GetComponent<Character>().Orient(characterDirectionX, characterDirectionY);
 
         if (characterDirectionX > 0 && hitWall[Wall.RIGHT] || characterDirectionX < 0 && hitWall[Wall.LEFT])
             characterDirectionX = 0;
