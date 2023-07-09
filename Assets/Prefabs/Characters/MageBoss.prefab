@@ -43,9 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6acadcff5b6431429f597d2673584cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackLeft: {fileID: 8736979785937864411, guid: 8a2a47cccca87ee4398a7d80e0214045, type: 3}
-  attackLower: {fileID: 8736979785937864411, guid: 8a2a47cccca87ee4398a7d80e0214045, type: 3}
-  attackLowerLeft: {fileID: 8736979785937864411, guid: 8a2a47cccca87ee4398a7d80e0214045, type: 3}
+  attackLeft: {fileID: 8736979785937864411, guid: 194c0d9d59486fa4eb13881153698f80, type: 3}
+  attackLower: {fileID: 8736979785937864411, guid: 194c0d9d59486fa4eb13881153698f80, type: 3}
+  attackLowerLeft: {fileID: 8736979785937864411, guid: 194c0d9d59486fa4eb13881153698f80, type: 3}
   spawnNow: 0
   spawnLeftNow: 0
 --- !u!1 &2147515743384985413
@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 2147515743384985414}
   - component: {fileID: 5910510924056968365}
   m_Layer: 0
-  m_Name: Mage
+  m_Name: MageBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,7 +126,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -3268116876886179480, guid: dac3085d361bc9146b42f7e8bf09e6ad, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.18867922, g: 0.12048199, b: 0.11285153, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -217,18 +217,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  health: 2
+  health: 20
   spawner: {fileID: 616402102801311899}
   hurtbox: {fileID: 2147515743416389047}
   spawnPosnValue: 0
   attackCooldownFrames: 0
   recoveryFrames: 0
   destroyChar: 0
-  characterSpeed: 0.4
+  characterSpeed: 1.2
   rb2d: {fileID: 2147515743384985415}
   hitbox: {fileID: 0}
   waveNum: 0
-  walkCycleLength: 60
+  walkCycleLength: 0
   doneAttack: 0
 --- !u!1 &2147515743416389047
 GameObject:

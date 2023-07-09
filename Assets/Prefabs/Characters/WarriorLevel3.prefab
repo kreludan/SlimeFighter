@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &616402102801311899
+--- !u!1 &2147515742216974341
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,92 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7689377975273497501}
-  - component: {fileID: 8022462120878241546}
+  - component: {fileID: 2147515742216974342}
+  - component: {fileID: 2147515742216974345}
+  - component: {fileID: 2147515742216974344}
+  - component: {fileID: 2147515742216974343}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7689377975273497501
+  m_IsActive: 0
+--- !u!4 &2147515742216974342
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616402102801311899}
+  m_GameObject: {fileID: 2147515742216974341}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.016249895, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.9, y: 1.9, z: 1}
   m_Children: []
   m_Father: {fileID: 2147515743384985419}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8022462120878241546
+--- !u!50 &2147515742216974345
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147515742216974341}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &2147515742216974344
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147515742216974341}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.35, y: 0.35}
+  m_EdgeRadius: 0
+--- !u!114 &2147515742216974343
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616402102801311899}
+  m_GameObject: {fileID: 2147515742216974341}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6acadcff5b6431429f597d2673584cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 219e15f1567ba1d4da1e77f50078efce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackLeft: {fileID: 8736979785937864411, guid: 8a2a47cccca87ee4398a7d80e0214045, type: 3}
-  attackLower: {fileID: 8736979785937864411, guid: 8a2a47cccca87ee4398a7d80e0214045, type: 3}
-  attackLowerLeft: {fileID: 8736979785937864411, guid: 8a2a47cccca87ee4398a7d80e0214045, type: 3}
-  spawnNow: 0
-  spawnLeftNow: 0
+  damage: 20
+  box: {fileID: 2147515742216974344}
 --- !u!1 &2147515743384985413
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,9 +107,9 @@ GameObject:
   - component: {fileID: 2147515743384985416}
   - component: {fileID: 2147515743384985415}
   - component: {fileID: 2147515743384985414}
-  - component: {fileID: 5910510924056968365}
+  - component: {fileID: 2591069751196379027}
   m_Layer: 0
-  m_Name: Mage
+  m_Name: WarriorLevel3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +127,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2147515743416389048}
-  - {fileID: 7689377975273497501}
+  - {fileID: 2147515742216974342}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -125,8 +171,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -3268116876886179480, guid: dac3085d361bc9146b42f7e8bf09e6ad, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 8191701575316586901, guid: f22302f33e9b5674886357b9d63e8b76, type: 3}
+  m_Color: {r: 0.384, g: 0.09320468, b: 0.0847698, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -149,7 +195,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.03, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -160,7 +206,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.42, y: 0.4}
+  m_Size: {x: 0.6, y: 0.32}
   m_EdgeRadius: 0
 --- !u!50 &2147515743384985415
 Rigidbody2D:
@@ -193,7 +239,7 @@ Animator:
   m_GameObject: {fileID: 2147515743384985413}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: feb4a5542e3837e4e865fa9b7e2fdda6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 316ab4e172683664d9fdd706483c6476, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -204,7 +250,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5910510924056968365
+--- !u!114 &2591069751196379027
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,23 +259,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 2147515743384985413}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c039f87f28dc9d74aaafc428c21fd5f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ae194c396f68f74eab3f7c80bb68eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  health: 2
-  spawner: {fileID: 616402102801311899}
+  health: 3
+  spawner: {fileID: 0}
   hurtbox: {fileID: 2147515743416389047}
   spawnPosnValue: 0
   attackCooldownFrames: 0
-  recoveryFrames: 0
+  recoveryFrames: 5
   destroyChar: 0
-  characterSpeed: 0.4
+  characterSpeed: 1.6
   rb2d: {fileID: 2147515743384985415}
-  hitbox: {fileID: 0}
+  hitbox: {fileID: 2147515742216974341}
   waveNum: 0
-  walkCycleLength: 60
-  doneAttack: 0
 --- !u!1 &2147515743416389047
 GameObject:
   m_ObjectHideFlags: 0
