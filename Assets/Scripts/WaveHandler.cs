@@ -17,13 +17,18 @@ public class WaveHandler : MonoBehaviour
     private int numFramesWaited;
 
     private BattleUI battleUI;
+    private GameOverUI gameOverUI;
+
+    private bool isGameOver;
 
     // Start is called before the first frame update
     void Start()
     {
         battleUI = GlobalManager.Instance.UiManager.BattleUI;
+        gameOverUI = GlobalManager.Instance.UiManager.GameOverUI;
         waveNum = 0;
         numFramesWaited = 0;
+        isGameOver = true;
     }
 
     // Update is called once per frame
@@ -40,10 +45,16 @@ public class WaveHandler : MonoBehaviour
         {
             if(waveNum == waves.Count)
             {
-                Debug.Log("YOU WIN");
+                if (isGameOver) 
+                { 
+                    GlobalManager.Instance.UiManager.ActivateGameOverUI(false);
+                    Debug.Log("YOU WIN");
+                    isGameOver = false;
+                }
             }
             else
             {
+                isGameOver = true;
                 numFramesWaited++;
                 if (numFramesWaited == delayFrames)
                 {

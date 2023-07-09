@@ -8,7 +8,18 @@ public class GameOverUI : MonoBehaviour
 {
     [SerializeField]
     private Button startButton;
+    [SerializeField]
+    private Image winLose;
+    [SerializeField]
+    private Sprite winImg;
+    [SerializeField]
+    private Sprite loseImg;
 
+    public Image WinLose => winLose;
+    public Sprite WinImg => winImg;
+    public Sprite LoseImg => loseImg;
+
+    
     private GameObject lastSelection;
     private void OnEnable()
     {

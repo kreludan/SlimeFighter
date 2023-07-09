@@ -18,11 +18,8 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (!GlobalManager.Instance.UiManager.PauseMenuUI.gameObject.activeSelf)
-        {
-            HandleMovement();
-            HandleAttack();
-        }
+        HandleMovement();
+        HandleAttack();
     }
 
     private void HandleAttack()

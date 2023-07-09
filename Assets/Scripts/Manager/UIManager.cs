@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && ( !MainMenuUI.gameObject.activeSelf || ( BattleUI.gameObject.activeSelf && !GameOverUI.gameObject.activeSelf)))
+        if(Input.GetKeyDown(KeyCode.Escape) && ( !MainMenuUI.gameObject.activeSelf && !GameOverUI.gameObject.activeSelf && !BattleUI.Wave.activeSelf))
         {
             if (!PauseMenuUI.gameObject.activeSelf)
             {
@@ -40,8 +40,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ActivateGameOverUI()
+    public void ActivateGameOverUI(bool isDead)
     {
+        pauseMenuUI.gameObject.SetActive(false);
         gameOverUI.gameObject.SetActive(true);
+        gameOverUI.WinLose.sprite = isDead ? GameOverUI.LoseImg : GameOverUI.WinImg;
     }
 }

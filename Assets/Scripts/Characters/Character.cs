@@ -73,7 +73,7 @@ public class Character : MonoBehaviour
             Debug.Log(gameObject.name + " Died ):");
             if (isPlayer)
             {
-                GlobalManager.Instance.UiManager.ActivateGameOverUI();
+                GlobalManager.Instance.UiManager.ActivateGameOverUI(true);
             }
         }
 
