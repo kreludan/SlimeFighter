@@ -125,8 +125,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -3268116876886179480, guid: dac3085d361bc9146b42f7e8bf09e6ad, type: 3}
-  m_Color: {r: 0.8301887, g: 0.2694625, b: 0.20676395, a: 1}
+  m_Sprite: {fileID: -1674976490676752372, guid: 16c6c6b33146a274296f141c02a5309f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -193,7 +193,7 @@ Animator:
   m_GameObject: {fileID: 2147515743384985413}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: feb4a5542e3837e4e865fa9b7e2fdda6, type: 2}
+  m_Controller: {fileID: 9100000, guid: c388099976971f04fa347db02fe46e03, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  health: 4
+  health: 6
   spawner: {fileID: 616402102801311899}
   hurtbox: {fileID: 2147515743416389047}
   spawnPosnValue: 0
