@@ -54,7 +54,19 @@ public class Hurtbox : MonoBehaviour
                 {
                     collision.transform.parent.GetComponent<Projectile>().destroyNow = true;
                 }
+
+                if(playerProjectileHitsEnemy)
+                {
+                    transform.GetComponentInParent<Enemy>().KnockbackFromPlayer(4f);
+                }
+
+
             }
+        }
+
+        if(playerProjectileHitsEnemy)
+        {
+            collision.transform.parent.GetComponent<Hitbox>().enabled = false;
         }
 
 

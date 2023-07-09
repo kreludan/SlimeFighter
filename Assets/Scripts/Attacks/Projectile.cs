@@ -59,7 +59,7 @@ public class Projectile : MonoBehaviour
     {
         Vector2 velocity = new Vector2(xDir * projectileSpeed, yDir * projectileSpeed);
         Vector2 p = transform.position;
-        transform.position = p + velocity * Time.fixedDeltaTime;
+        transform.position = p + velocity * Time.deltaTime;
     }
 
 

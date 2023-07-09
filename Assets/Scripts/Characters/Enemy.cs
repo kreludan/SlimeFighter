@@ -48,7 +48,7 @@ public class Enemy : Character
         MoveInDirection(xDist, yDist);
     }
 
-    public void MoveAwayPlayer()
+    public void MoveAwayPlayer(float modifier = 1)
     {
         GameObject player = GameObject.Find("Player");
         if (player == null) { return; }
@@ -63,9 +63,32 @@ public class Enemy : Character
             xDist *= diagonalUnit;
             yDist *= diagonalUnit;
         }
+        xDist *= modifier;
+        yDist *= modifier;
         MoveInDirection(-xDist, -yDist);
     }
 
+    public void KnockbackFromPlayer(float modifier = 1)
+    {
+        GameObject player = GameObject.Find("Player");
+        if (player == null) { return; }
+        float xDist = player.transform.position.x - transform.position.x;
+        float yDist = player.transform.position.y - transform.position.y;
+        if (Mathf.Abs(xDist) <= 0.1) xDist = 0;
+        if (Mathf.Abs(yDist) <= 0.1) yDist = 0;
+        xDist = xDist != 0 ? Mathf.Sign(xDist) : 0;
+        yDist = yDist != 0 ? Mathf.Sign(yDist) : 0;
+        if (xDist != 0 && yDist != 0)
+        {
+            xDist *= diagonalUnit;
+            yDist *= diagonalUnit;
+        }
+        xDist *= modifier;
+        yDist *= modifier;
+        Vector2 velocity = new Vector2(-xDist, -yDist);
+        rb2d.MovePosition(rb2d.position + velocity * Time.deltaTime);
+        transform.position = rb2d.position + velocity * Time.deltaTime;
+    }
 
     public void MoveLeft()
     {
@@ -112,8 +135,8 @@ public class Enemy : Character
         Orient(xDir, yDir);
         HandleAnimation(xDir, yDir);
         Vector2 velocity = new Vector2(xDir * characterSpeed, yDir * characterSpeed);
-        rb2d.MovePosition(rb2d.position + velocity * Time.fixedDeltaTime);
-        transform.position = rb2d.position + velocity * Time.fixedDeltaTime;
+        rb2d.MovePosition(rb2d.position + velocity * Time.deltaTime);
+        transform.position = rb2d.position + velocity * Time.deltaTime;
     }
     private void HandleAnimation(float movementX, float movementY)
     {

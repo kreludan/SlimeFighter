@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 2147515743384985414}
   - component: {fileID: 2591069751196379027}
   m_Layer: 0
-  m_Name: AdventurerEnemy1
+  m_Name: Warrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -263,15 +263,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  health: 1
+  health: 2
   spawner: {fileID: 0}
   hurtbox: {fileID: 2147515743416389047}
   spawnPosnValue: 0
   attackCooldownFrames: 0
-  recoveryFrames: 0
-  characterSpeed: 1
+  recoveryFrames: 5
+  characterSpeed: 0.5
   rb2d: {fileID: 2147515743384985415}
   hitbox: {fileID: 2147515742216974341}
+  waveNum: 0
 --- !u!1 &2147515743416389047
 GameObject:
   m_ObjectHideFlags: 0

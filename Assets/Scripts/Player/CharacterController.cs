@@ -63,8 +63,8 @@ public class CharacterController : MonoBehaviour
 
         Vector2 velocity = new Vector2(characterDirectionX * universalCharacterSpeed, characterDirectionY * universalCharacterSpeed);
 
-        rb2d.MovePosition(rb2d.position + velocity * Time.fixedDeltaTime);
-        transform.position = rb2d.position + velocity * Time.fixedDeltaTime;
+        rb2d.MovePosition(rb2d.position + velocity * Time.deltaTime);
+        transform.position = rb2d.position + velocity * Time.deltaTime;
     }
 
     private void HandlePlayerAnimation(float movementX, float movementY)
