@@ -23,18 +23,18 @@ public class RogueEnemy : Enemy
     public override void Update()
     {
         base.Update();
-        
         GameObject player = GameObject.Find("Player");
         if (transform.position.x < player.transform.position.x)
         {
-            Orient(1, 0);
+            Orient(-1, 0);
+            setDirX(CharDirX.LEFT);
         }
         else
         {
             Orient(-1, 0);
+            setDirX(CharDirX.RIGHT);
+            GetComponent<SpriteRenderer>().flipX = true;
         }
-
-
         if (frameNumTracker <= walkCycleLength)
         {
             MoveVerticalDirPlayer();
@@ -42,7 +42,8 @@ public class RogueEnemy : Enemy
         }
         else if (doneAttack == false)
         {
-            MoveInDirection(0, 0);
+            MoveVerticalDirPlayer();
+            MoveInDirection(0, 0, true);
         }
         else
         {

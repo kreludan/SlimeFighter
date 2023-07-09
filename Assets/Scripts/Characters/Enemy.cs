@@ -140,14 +140,18 @@ public class Enemy : Character
         MoveInDirection(diagonalUnit, -diagonalUnit);
     }
 
-    public void MoveInDirection(float xDir, float yDir)
+    public void MoveInDirection(float xDir, float yDir, bool orientOff = false)
     {
-        Orient(xDir, yDir);
+        if (!orientOff)
+        {
+            Orient(xDir, yDir);
+        }    
         HandleAnimation(xDir, yDir);
         Vector2 velocity = new Vector2(xDir * characterSpeed, yDir * characterSpeed);
         rb2d.MovePosition(rb2d.position + velocity * Time.deltaTime);
         transform.position = rb2d.position + velocity * Time.deltaTime;
     }
+
     private void HandleAnimation(float movementX, float movementY)
     {
         if (GetComponent<Character>().CurrState == Character.CharState.HURT)
