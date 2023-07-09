@@ -39,5 +39,8 @@ public class GameManager : MonoBehaviour
         {
             child.gameObject.SetActive(true);
         }
+
+        GlobalManager.Instance.UiManager.PauseMenuUI.gameObject.SetActive(false);
+        GlobalManager.Instance.UiManager.GameOverUI.gameObject.SetActive(false);
     }
 }
