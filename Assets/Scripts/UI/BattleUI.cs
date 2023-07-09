@@ -12,6 +12,8 @@ public class BattleUI : MonoBehaviour
     [SerializeField]
     private GameObject wave;
     [SerializeField]
+    private GameObject extraLife;
+    [SerializeField]
     private Image numberWave1;
     [SerializeField]
     private Image numberWave2;
@@ -20,6 +22,7 @@ public class BattleUI : MonoBehaviour
     public GameObject HealthBar => healthBar;
     public GameObject Points => points;
     public GameObject Wave => wave;
+    public GameObject ExtraLife => extraLife;
 
     private const int MAX_HEALTH = 5;
     // Start is called before the first frame update
@@ -36,6 +39,7 @@ public class BattleUI : MonoBehaviour
 
     public void HealthUpdate(int characterHealth)
     {
+        Debug.Log("Health Character : " + characterHealth);
         for (int i = 0; i < MAX_HEALTH; i++)
         {
             GameObject currentChild = healthBar.transform.GetChild(i).gameObject;
@@ -51,5 +55,10 @@ public class BattleUI : MonoBehaviour
 
         numberWave1.sprite = listNumberWave[firstNumber];
         numberWave2.sprite = listNumberWave[secondNumber];
+    }
+
+    public void ExtraLifePopup() 
+    {
+        
     }
 }

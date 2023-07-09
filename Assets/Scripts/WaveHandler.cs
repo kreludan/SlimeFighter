@@ -62,6 +62,7 @@ public class WaveHandler : MonoBehaviour
                     if (numFramesWaited == delayFrames)
                     {
                         battleUI.Wave.SetActive(false);
+                        battleUI.ExtraLife.SetActive(false);
                         numFramesWaited = 0;
                         waveNum++;
                         waves[waveNum - 1].SpawnWave();
@@ -80,6 +81,7 @@ public class WaveHandler : MonoBehaviour
 
                         if((waveNum + 1) % 5 == 0)
                         {
+                            battleUI.ExtraLife.SetActive(true);
                             GameObject player = GameObject.Find("Player");
                             if(player.GetComponent<Character>().health < 5)
                             {
