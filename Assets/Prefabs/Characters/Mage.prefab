@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  health: 2
+  health: 1
   spawner: {fileID: 616402102801311899}
   hurtbox: {fileID: 2147515743416389047}
   spawnPosnValue: 0
@@ -228,7 +228,7 @@ MonoBehaviour:
   rb2d: {fileID: 2147515743384985415}
   hitbox: {fileID: 0}
   waveNum: 0
-  walkCycleLength: 60
+  walkCycleLength: 100
   doneAttack: 0
 --- !u!1 &2147515743416389047
 GameObject:
