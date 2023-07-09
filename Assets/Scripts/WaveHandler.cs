@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveHandler : MonoBehaviour
 {
@@ -15,12 +16,12 @@ public class WaveHandler : MonoBehaviour
 
     private int numFramesWaited;
 
-    private GameObject waveText;
+    private BattleUI battleUI;
 
     // Start is called before the first frame update
     void Start()
     {
-        waveText = GlobalManager.Instance.UiManager.BattleUI.Wave;
+        battleUI = GlobalManager.Instance.UiManager.BattleUI;
         waveNum = 0;
         numFramesWaited = 0;
     }
@@ -46,15 +47,15 @@ public class WaveHandler : MonoBehaviour
                 numFramesWaited++;
                 if (numFramesWaited == delayFrames)
                 {
-                    waveText.SetActive(false);
+                    battleUI.Wave.SetActive(false);
                     numFramesWaited = 0;
                     waveNum++;
                     waves[waveNum - 1].SpawnWave();
                 }
                 else
                 {
-                    waveText.SetActive(true);
-                    waveText.GetComponent<TMP_Text>().text = "WAVE " + (waveNum + 1);
+                    battleUI.Wave.SetActive(true);
+                    battleUI.Wave.GetComponent<Image>().sprite = battleUI.ListWave[waveNum];
                     Debug.Log("WAVE " + (waveNum + 1));
                 }
             }

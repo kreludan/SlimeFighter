@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleUI : MonoBehaviour
 {
@@ -10,9 +11,12 @@ public class BattleUI : MonoBehaviour
     private GameObject points;
     [SerializeField]
     private GameObject wave;
+    [SerializeField]
+    private List<Sprite> listWave;
     public GameObject HealthBar => healthBar;
     public GameObject Points => points;
     public GameObject Wave => wave;
+    public List<Sprite> ListWave => listWave;
 
     private const int MAX_HEALTH = 3;
     // Start is called before the first frame update
