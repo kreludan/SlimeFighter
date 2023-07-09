@@ -9,7 +9,7 @@ public class Character : MonoBehaviour
     private int health;
 
     [SerializeField]
-    private GameObject spawner;
+    protected GameObject spawner;
 
     [SerializeField]
     private GameObject hurtbox;

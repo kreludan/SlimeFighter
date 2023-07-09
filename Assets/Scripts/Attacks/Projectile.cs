@@ -12,9 +12,15 @@ public class Projectile : MonoBehaviour
 
     float diagonalUnit = Mathf.Sqrt(2) / 2;
 
+    float linearXDist;
+
     void Start()
     {
         destroyNow = false;
+        if(isLinearProjectile)
+        {
+            LinearProjectileStartBehavior();
+        }
     }
 
     void Update()
@@ -22,6 +28,11 @@ public class Projectile : MonoBehaviour
         if(isHomingProjectile)
         {
             HomingProjectileUpdateBehavior();
+        }
+
+        if(isLinearProjectile)
+        {
+            LinearProjectileUpdateBehavior();
         }
 
         if(destroyNow)
@@ -53,6 +64,22 @@ public class Projectile : MonoBehaviour
             yDist *= diagonalUnit;
         }
         MoveInDirection(xDist, yDist);
+    }
+
+    void LinearProjectileStartBehavior()
+    {
+        GameObject player = GameObject.Find("Player");
+        if (player == null) { Destroy(gameObject); }
+
+        float xDist = player.transform.position.x - transform.position.x;
+        xDist = xDist != 0 ? Mathf.Sign(xDist) : 1;
+        linearXDist = xDist;
+    }
+
+    void LinearProjectileUpdateBehavior()
+    {
+        if(linearXDist < 0) { GetComponent<SpriteRenderer>().flipX = true; }
+        MoveInDirection(linearXDist, 0);
     }
 
     public void MoveInDirection(float xDir, float yDir)

@@ -68,11 +68,6 @@ public class Hurtbox : MonoBehaviour
             }
         }
 
-        if(playerProjectileHitsEnemy)
-        {
-            collision.transform.parent.GetComponent<Hitbox>().enabled = false;
-        }
-
 
     }
 }

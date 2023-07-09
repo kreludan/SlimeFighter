@@ -55,7 +55,6 @@ public class WaveHandler : MonoBehaviour
                 {
                     waveText.SetActive(true);
                     waveText.GetComponent<TMP_Text>().text = "WAVE " + (waveNum + 1);
-                    Debug.Log("WAVE " + (waveNum + 1));
                 }
             }
         }
