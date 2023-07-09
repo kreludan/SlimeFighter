@@ -43,8 +43,13 @@ public class BattleUI : MonoBehaviour
         for (int i = 0; i < MAX_HEALTH; i++)
         {
             GameObject currentChild = healthBar.transform.GetChild(i).gameObject;
-            if (i < characterHealth) currentChild.SetActive(true);
-            else currentChild.SetActive(false);
+            currentChild.SetActive(false);
+        }
+        GameObject player = GameObject.Find("Player");
+        for (int i = 0; i < player.GetComponent<Character>().health; i++)
+        {
+            GameObject currentChild = healthBar.transform.GetChild(i).gameObject;
+            currentChild.SetActive(true);
         }
     }
 

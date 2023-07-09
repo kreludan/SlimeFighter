@@ -22,6 +22,8 @@ public class WaveHandler : MonoBehaviour
 
     private bool isGameOver;
 
+    private bool hasHealed = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +68,7 @@ public class WaveHandler : MonoBehaviour
                         numFramesWaited = 0;
                         waveNum++;
                         waves[waveNum - 1].SpawnWave();
+                        hasHealed = false;
                     }
                     else
                     {
@@ -83,9 +86,10 @@ public class WaveHandler : MonoBehaviour
                         {
                             battleUI.ExtraLife.SetActive(true);
                             GameObject player = GameObject.Find("Player");
-                            if(player.GetComponent<Character>().health < 5)
+                            if (player.GetComponent<Character>().health < 5 && hasHealed == false)
                             {
                                 player.GetComponent<Character>().health += 1;
+                                hasHealed = true;
                                 GlobalManager.Instance.UiManager.BattleUI.HealthUpdate(player.GetComponent<Character>().health);
                                 // Debug.Log("EXTRA LIFE");
                             }
