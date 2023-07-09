@@ -76,7 +76,7 @@ public class WaveHandler : MonoBehaviour
 
                         battleUI.Wave.SetActive(true);
                         battleUI.UpdateWaveNumber(waveNum + 1);
-                        Debug.Log("WAVE " + (waveNum + 1));
+                       // Debug.Log("WAVE " + (waveNum + 1));
 
                         if((waveNum + 1) % 5 == 0)
                         {
@@ -84,7 +84,8 @@ public class WaveHandler : MonoBehaviour
                             if(player.GetComponent<Character>().health < 5)
                             {
                                 player.GetComponent<Character>().health += 1;
-                                Debug.Log("EXTRA LIFE");
+                                GlobalManager.Instance.UiManager.BattleUI.HealthUpdate(player.GetComponent<Character>().health);
+                                // Debug.Log("EXTRA LIFE");
                             }
                         }
                     }
