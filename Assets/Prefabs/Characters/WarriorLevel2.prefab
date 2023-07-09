@@ -270,7 +270,7 @@ MonoBehaviour:
   attackCooldownFrames: 0
   recoveryFrames: 5
   destroyChar: 0
-  characterSpeed: 1.2
+  characterSpeed: 0.85
   rb2d: {fileID: 2147515743384985415}
   hitbox: {fileID: 2147515742216974341}
   waveNum: 0

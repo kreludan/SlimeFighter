@@ -68,9 +68,24 @@ public class WaveHandler : MonoBehaviour
                     }
                     else
                     {
+                        Projectile[] projectiles = FindObjectsOfType<Projectile>();
+                        foreach(Projectile p in projectiles)
+                        {
+                            Destroy(p.gameObject);
+                        }
+
                         battleUI.Wave.SetActive(true);
                         battleUI.Wave.GetComponent<Image>().sprite = battleUI.ListWave[waveNum];
                         Debug.Log("WAVE " + (waveNum + 1));
+
+                        if((waveNum + 1) % 5 == 0)
+                        {
+                            GameObject player = GameObject.Find("Player");
+                            if(player.GetComponent<Character>().health < 5)
+                            {
+                                player.GetComponent<Character>().health += 1;
+                            }
+                        }
                     }
                 }
             }

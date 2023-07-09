@@ -6,7 +6,7 @@ public class Character : MonoBehaviour
     private bool isPlayer = false;
 
     [SerializeField]
-    private int health;
+    public int health;
 
     [SerializeField]
     protected GameObject spawner;
@@ -70,7 +70,7 @@ public class Character : MonoBehaviour
         if(destroyChar)
         {
             Destroy(gameObject);
-            Debug.Log(gameObject.name + " Died ):");
+            //Debug.Log(gameObject.name + " Died ):");
             if (isPlayer)
             {
                 GlobalManager.Instance.UiManager.ActivateGameOverUI(true);
@@ -125,7 +125,7 @@ public class Character : MonoBehaviour
         if (health <= 0)
         {
             dying = true;
-            Debug.Log("Dying");
+            //Debug.Log("Dying");
             GetComponent<Animator>().Play("Death");
         }
     }

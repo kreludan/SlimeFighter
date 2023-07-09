@@ -29,7 +29,7 @@ public class Hurtbox : MonoBehaviour
 
     void RespondToCollision(Collider2D collision)
     {
-        Debug.Log(transform.parent.name + " AND " + collision.transform.name);
+        //Debug.Log(transform.parent.name + " AND " + collision.transform.name);
 
         if (collision.transform.parent == transform.parent || collision.transform.parent == null)
         {

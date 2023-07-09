@@ -29,7 +29,7 @@ public class Hitbox : MonoBehaviour
             }
         }
 
-        Debug.Log(transform.parent.name + " AND " + collision.transform.name);
+        //Debug.Log(transform.parent.name + " AND " + collision.transform.name);
         //Debug.Log(transform.parent.name + " collided with " + collision.transform.name);
     }
 
