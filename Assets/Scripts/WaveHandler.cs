@@ -55,19 +55,22 @@ public class WaveHandler : MonoBehaviour
             else
             {
                 isGameOver = true;
-                numFramesWaited++;
-                if (numFramesWaited == delayFrames)
+                if (!GlobalManager.Instance.UiManager.ControlsUI.gameObject.activeSelf)
                 {
-                    battleUI.Wave.SetActive(false);
-                    numFramesWaited = 0;
-                    waveNum++;
-                    waves[waveNum - 1].SpawnWave();
-                }
-                else
-                {
-                    battleUI.Wave.SetActive(true);
-                    battleUI.Wave.GetComponent<Image>().sprite = battleUI.ListWave[waveNum];
-                    Debug.Log("WAVE " + (waveNum + 1));
+                    numFramesWaited++;
+                    if (numFramesWaited == delayFrames)
+                    {
+                        battleUI.Wave.SetActive(false);
+                        numFramesWaited = 0;
+                        waveNum++;
+                        waves[waveNum - 1].SpawnWave();
+                    }
+                    else
+                    {
+                        battleUI.Wave.SetActive(true);
+                        battleUI.Wave.GetComponent<Image>().sprite = battleUI.ListWave[waveNum];
+                        Debug.Log("WAVE " + (waveNum + 1));
+                    }
                 }
             }
         }

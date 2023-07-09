@@ -12,11 +12,14 @@ public class UIManager : MonoBehaviour
     private PauseMenuUI pauseMenuUI;
     [SerializeField]
     private GameOverUI gameOverUI;
+    [SerializeField]
+    private ControlsUI controlsUI;
 
     public MainMenuUI MainMenuUI => mainMenuUI;
     public BattleUI BattleUI => battleUI;
     public PauseMenuUI PauseMenuUI => pauseMenuUI;
     public GameOverUI GameOverUI => gameOverUI;
+    public ControlsUI ControlsUI => controlsUI;
 
     // Start is called before the first frame update
     void Start()
@@ -45,5 +48,11 @@ public class UIManager : MonoBehaviour
         pauseMenuUI.gameObject.SetActive(false);
         gameOverUI.gameObject.SetActive(true);
         gameOverUI.WinLose.sprite = isDead ? GameOverUI.LoseImg : GameOverUI.WinImg;
+    }
+
+    public void DeactivateControlsUI()
+    {
+        controlsUI.gameObject.SetActive(false);
+        battleUI.gameObject.SetActive(true);
     }
 }

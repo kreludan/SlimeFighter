@@ -42,5 +42,7 @@ public class GameManager : MonoBehaviour
 
         GlobalManager.Instance.UiManager.PauseMenuUI.gameObject.SetActive(false);
         GlobalManager.Instance.UiManager.GameOverUI.gameObject.SetActive(false);
+        GlobalManager.Instance.UiManager.BattleUI.gameObject.SetActive(false);
+        GlobalManager.Instance.UiManager.ControlsUI.gameObject.SetActive(true);
     }
 }
