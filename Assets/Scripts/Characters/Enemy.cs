@@ -48,6 +48,16 @@ public class Enemy : Character
         MoveInDirection(xDist, yDist);
     }
 
+    public void MoveVerticalDirPlayer()
+    {
+        GameObject player = GameObject.Find("Player");
+        if (player == null) { return; }
+        float yDist = player.transform.position.y - transform.position.y;
+        if (Mathf.Abs(yDist) <= 0.1) yDist = 0;
+        yDist = yDist != 0 ? Mathf.Sign(yDist) : 0;
+        MoveInDirection(0, yDist);
+    }
+
     public void MoveAwayPlayer(float modifier = 1)
     {
         GameObject player = GameObject.Find("Player");

@@ -9,7 +9,7 @@ public class Character : MonoBehaviour
     private int health;
 
     [SerializeField]
-    private GameObject spawner;
+    protected GameObject spawner;
 
     [SerializeField]
     private GameObject hurtbox;
@@ -23,6 +23,9 @@ public class Character : MonoBehaviour
     [SerializeField]
     private int recoveryFrames;
     public int RecoveryFrames => recoveryFrames;
+
+    public bool destroyChar;
+    private bool dying;
 
     public enum CharDirX
     {
@@ -57,11 +60,25 @@ public class Character : MonoBehaviour
         dirY = CharDirY.NEUTRAL;
 
         prevState = CharState.IDLE;
+        dying = false;
+        destroyChar = false;
     }
 
     // Update is called once per frame
     public virtual void Update()
     {
+        if(destroyChar)
+        {
+            Destroy(gameObject);
+            Debug.Log(gameObject.name + " Died ):");
+            if (isPlayer)
+            {
+                GlobalManager.Instance.UiManager.ActivateGameOverUI();
+            }
+        }
+
+        if (dying) return;
+
         if(spawner) UpdateSpawnerPosition();
         UpdateHurtboxPosition();
 
@@ -107,12 +124,9 @@ public class Character : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(gameObject);
-            Debug.Log(gameObject.name + " Died ):");
-            if(isPlayer)
-            {
-                GlobalManager.Instance.UiManager.ActivateGameOverUI();
-            }
+            dying = true;
+            Debug.Log("Dying");
+            GetComponent<Animator>().Play("Death");
         }
     }
 

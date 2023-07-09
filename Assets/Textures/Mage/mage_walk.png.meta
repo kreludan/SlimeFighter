@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: ca848c52563f9e349b290f78ed1eb1bd
+guid: 03509cba3f7b5e947961cdd88d7dac7f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2774663227759487516
-    second: adventurer_enemy_1_0
+      213: 149732852512535301
+    second: mage_walk_0
   - first:
-      213: 3923102841261923049
-    second: adventurer_enemy_1_1
+      213: 6119165162408526200
+    second: mage_walk_1
+  - first:
+      213: 6254796634970184597
+    second: mage_walk_2
+  - first:
+      213: 178934664154268824
+    second: mage_walk_3
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -94,11 +100,23 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: adventurer_enemy_1_0
+      name: mage_walk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -112,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1a61fd3185918620800000000000000
-      internalID: 2774663227759487516
+      spriteID: 503373d6c35f31200800000000000000
+      internalID: 149732852512535301
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: adventurer_enemy_1_1
+      name: mage_walk_1
       rect:
         serializedVersion: 2
         x: 64
@@ -133,8 +151,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ea1eb6af39a17630800000000000000
-      internalID: 3923102841261923049
+      spriteID: 8714e436b44abe450800000000000000
+      internalID: 6119165162408526200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage_walk_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59bd4b176608dc650800000000000000
+      internalID: 6254796634970184597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mage_walk_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8944be60124bb7200800000000000000
+      internalID: 178934664154268824
       vertices: []
       indices: 
       edges: []

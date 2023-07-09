@@ -57,16 +57,15 @@ public class Hurtbox : MonoBehaviour
 
                 if(playerProjectileHitsEnemy)
                 {
-                    transform.GetComponentInParent<Enemy>().KnockbackFromPlayer(4f);
+                    transform.GetComponentInParent<Enemy>().KnockbackFromPlayer(10f);
+                }
+                else
+                {
+                    transform.GetComponentInParent<CharacterController>().PlayerKnockbackFromGameobject(collision.GetComponentInParent<Transform>().position, 10f);
                 }
 
 
             }
-        }
-
-        if(playerProjectileHitsEnemy)
-        {
-            collision.transform.parent.GetComponent<Hitbox>().enabled = false;
         }
 
 
