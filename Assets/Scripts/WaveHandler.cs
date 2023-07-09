@@ -86,7 +86,7 @@ public class WaveHandler : MonoBehaviour
                         {
                             battleUI.ExtraLife.SetActive(true);
                             GameObject player = GameObject.Find("Player");
-                            if (hasHealed == false)
+                            if (player.GetComponent<Character>().health < 5 && hasHealed == false)
                             {
                                 player.GetComponent<Character>().health += 1;
                                 hasHealed = true;
