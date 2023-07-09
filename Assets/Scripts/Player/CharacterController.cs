@@ -6,7 +6,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField]
     private float universalCharacterSpeed;
     public Rigidbody2D rb2d;
-    
+    float diagonalUnit = Mathf.Sqrt(2) / 2;
 
     // Start is called before the first frame update
     void Start()
@@ -79,4 +79,26 @@ public class CharacterController : MonoBehaviour
 
         GetComponent<Character>().SetState(stateToUpdateTo);
     }
+
+
+    public void PlayerKnockbackFromGameobject(Vector3 thingBeingKnockedAwayFrom, float modifier = 1)
+    {
+        float xDist = thingBeingKnockedAwayFrom.x - transform.position.x;
+        float yDist = thingBeingKnockedAwayFrom.y - transform.position.y;
+        if (Mathf.Abs(xDist) <= 0.1) xDist = 0;
+        if (Mathf.Abs(yDist) <= 0.1) yDist = 0;
+        xDist = xDist != 0 ? Mathf.Sign(xDist) : 0;
+        yDist = yDist != 0 ? Mathf.Sign(yDist) : 0;
+        if (xDist != 0 && yDist != 0)
+        {
+            xDist *= diagonalUnit;
+            yDist *= diagonalUnit;
+        }
+        xDist *= modifier;
+        yDist *= modifier;
+        Vector2 velocity = new Vector2(-xDist, -yDist);
+        rb2d.MovePosition(rb2d.position + velocity * Time.deltaTime);
+        transform.position = rb2d.position + velocity * Time.deltaTime;
+    }
+
 }
