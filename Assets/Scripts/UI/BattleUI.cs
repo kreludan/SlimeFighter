@@ -6,7 +6,14 @@ public class BattleUI : MonoBehaviour
 {
     [SerializeField]
     private GameObject healthBar;
+    [SerializeField]
+    private GameObject points;
+    [SerializeField]
+    private GameObject wave;
     public GameObject HealthBar => healthBar;
+    public GameObject Points => points;
+    public GameObject Wave => wave;
+
     private const int MAX_HEALTH = 3;
     // Start is called before the first frame update
     void Start()
@@ -25,15 +32,8 @@ public class BattleUI : MonoBehaviour
         for (int i = 0; i < MAX_HEALTH; i++)
         {
             GameObject currentChild = healthBar.transform.GetChild(i).gameObject;
-            if (i < characterHealth - 1)
-            {
-                currentChild.SetActive(true);
-            }
-            else
-            {
-                currentChild.SetActive(false);
-            }
-            
+            if (i < characterHealth - 1) currentChild.SetActive(true);
+            else currentChild.SetActive(false);
         }
     }
 }
