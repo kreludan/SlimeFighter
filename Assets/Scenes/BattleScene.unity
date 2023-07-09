@@ -8247,8 +8247,6 @@ MonoBehaviour:
   spawners:
   - {fileID: 1833362390}
   - {fileID: 1796180506}
-  - {fileID: 0}
-  - {fileID: 0}
   waveNum: 2
 --- !u!1 &1400748794
 GameObject:
