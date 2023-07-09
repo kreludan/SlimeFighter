@@ -13,8 +13,6 @@ public class PauseMenuUI : MonoBehaviour
     private void OnEnable()
     {
         EventSystem.current.SetSelectedGameObject(startButton.gameObject);
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
         Time.timeScale = 0;
     }
 
