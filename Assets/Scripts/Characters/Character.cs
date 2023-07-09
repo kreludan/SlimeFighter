@@ -189,11 +189,8 @@ public class Character : MonoBehaviour
     public void TakeDamage(int damage)
     {
         if(currHurtRecoveryFrames > 0) { return; }
-        if(isPlayer)
-        {
-            GlobalManager.Instance.UiManager.BattleUI.HealthUpdate(health);
-        }
         health -= 1;
+        if(isPlayer) GlobalManager.Instance.UiManager.BattleUI.HealthUpdate(health);
         HandleHurt();
     }
 

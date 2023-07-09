@@ -75,7 +75,7 @@ public class WaveHandler : MonoBehaviour
                         }
 
                         battleUI.Wave.SetActive(true);
-                        battleUI.Wave.GetComponent<Image>().sprite = battleUI.ListWave[waveNum];
+                        battleUI.UpdateWaveNumber(waveNum + 1);
                         Debug.Log("WAVE " + (waveNum + 1));
 
                         if((waveNum + 1) % 5 == 0)
