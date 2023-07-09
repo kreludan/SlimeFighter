@@ -24,6 +24,9 @@ public class Character : MonoBehaviour
     private int recoveryFrames;
     public int RecoveryFrames => recoveryFrames;
 
+    public bool destroyChar;
+    private bool dying;
+
     public enum CharDirX
     {
         LEFT, RIGHT, NEUTRAL
@@ -57,11 +60,25 @@ public class Character : MonoBehaviour
         dirY = CharDirY.NEUTRAL;
 
         prevState = CharState.IDLE;
+        dying = false;
+        destroyChar = false;
     }
 
     // Update is called once per frame
     public virtual void Update()
     {
+        if(destroyChar)
+        {
+            Destroy(gameObject);
+            Debug.Log(gameObject.name + " Died ):");
+            if (isPlayer)
+            {
+                GlobalManager.Instance.UiManager.ActivateGameOverUI();
+            }
+        }
+
+        if (dying) return;
+
         if(spawner) UpdateSpawnerPosition();
         UpdateHurtboxPosition();
 
@@ -107,12 +124,9 @@ public class Character : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(gameObject);
-            Debug.Log(gameObject.name + " Died ):");
-            if(isPlayer)
-            {
-                GlobalManager.Instance.UiManager.ActivateGameOverUI();
-            }
+            dying = true;
+            Debug.Log("Dying");
+            GetComponent<Animator>().Play("Death");
         }
     }
 
