@@ -84,6 +84,7 @@ public class WaveHandler : MonoBehaviour
                             if(player.GetComponent<Character>().health < 5)
                             {
                                 player.GetComponent<Character>().health += 1;
+                                Debug.Log("EXTRA LIFE");
                             }
                         }
                     }
