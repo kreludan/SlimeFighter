@@ -9,11 +9,23 @@ public class Spawner : MonoBehaviour
     public GameObject attackLower;
     public GameObject attackLowerLeft;
 
+    public bool spawnNow;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        spawnNow = false;
         
+    }
+
+    public void Update()
+    {
+        if(spawnNow)
+        {
+            Character c = GetComponentInParent<Character>();
+            SpawnAttack(c.DirX, c.DirY, false);
+            spawnNow = false;
+        }
     }
 
     public void SpawnAttack(Character.CharDirX dirX, Character.CharDirY dirY, bool playerOwned = false)

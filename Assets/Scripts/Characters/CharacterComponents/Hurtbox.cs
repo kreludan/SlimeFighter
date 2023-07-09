@@ -15,15 +15,15 @@ public class Hurtbox : MonoBehaviour
         Gizmos.DrawCube(box.offset, box.size);
     }
 
-
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Debug.Log(transform.parent.name + " collided with " + collision.transform.name);
         RespondToCollision(collision);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        //Debug.Log(transform.parent.name + " collided with " + collision.transform.name);
         RespondToCollision(collision);
     }
 
@@ -48,7 +48,15 @@ public class Hurtbox : MonoBehaviour
             if (GetComponentInParent<Character>() != null && collision.GetComponentInParent<Hitbox>() != null)
             {
                 GetComponentInParent<Character>().TakeDamage(collision.GetComponentInParent<Hitbox>().damage);
+
+                if (collision.transform.parent.GetComponent<Projectile>() != null &&
+                    collision.transform.parent.GetComponent<Projectile>().destroyOnContact == true)
+                {
+                    collision.transform.parent.GetComponent<Projectile>().destroyNow = true;
+                }
             }
         }
+
+
     }
 }

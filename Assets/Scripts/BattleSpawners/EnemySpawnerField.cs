@@ -5,28 +5,17 @@ using UnityEngine;
 public class EnemySpawnerField : MonoBehaviour
 {
     [SerializeField]
-    int spawnEveryXFrames;
-    [SerializeField]
     List<GameObject> spawners;
-    private int frameNum;
-
+    [SerializeField]
+    int waveNum;
 
     // Start is called before the first frame update
-    void Start()
+    public void SpawnWave()
     {
-        frameNum = 0;
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        frameNum += 1;
-        if(frameNum % spawnEveryXFrames == 0)
+        foreach(GameObject spawner in spawners)
         {
-            System.Random random = new System.Random();
-            spawners[random.Next(0, spawners.Count)].GetComponent<EnemySpawner>().SpawnEnemy();
-
+            spawner.GetComponent<EnemySpawner>().SpawnEnemy(waveNum);
         }
+
     }
 }

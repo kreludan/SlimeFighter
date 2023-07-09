@@ -8,6 +8,7 @@ public class Enemy : Character
     private float characterSpeed;
     public Rigidbody2D rb2d;
     public GameObject hitbox;
+    public int waveNum;
 
     float diagonalUnit = Mathf.Sqrt(2) / 2;
 
@@ -19,7 +20,6 @@ public class Enemy : Character
         //MoveLeft();
         //MoveDirPlayer();
         UpdateLocalHitboxPosition();
-        MoveDirPlayer();
     }
 
     private void UpdateLocalHitboxPosition()
@@ -46,6 +46,24 @@ public class Enemy : Character
             yDist *= diagonalUnit;
         }
         MoveInDirection(xDist, yDist);
+    }
+
+    public void MoveAwayPlayer()
+    {
+        GameObject player = GameObject.Find("Player");
+        if (player == null) { return; }
+        float xDist = player.transform.position.x - transform.position.x;
+        float yDist = player.transform.position.y - transform.position.y;
+        if (Mathf.Abs(xDist) <= 0.1) xDist = 0;
+        if (Mathf.Abs(yDist) <= 0.1) yDist = 0;
+        xDist = xDist != 0 ? Mathf.Sign(xDist) : 0;
+        yDist = yDist != 0 ? Mathf.Sign(yDist) : 0;
+        if (xDist != 0 && yDist != 0)
+        {
+            xDist *= diagonalUnit;
+            yDist *= diagonalUnit;
+        }
+        MoveInDirection(-xDist, -yDist);
     }
 
 
