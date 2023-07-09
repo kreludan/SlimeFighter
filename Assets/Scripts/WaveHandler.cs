@@ -13,6 +13,7 @@ public class WaveHandler : MonoBehaviour
     private List<EnemySpawnerField> waves;
 
     private int waveNum;
+    private int superWaveNum;
 
     private int numFramesWaited;
 
