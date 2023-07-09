@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &67579443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6336,7 +6336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &596621418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8156,9 +8156,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawners:
   - {fileID: 1788536056}
-  - {fileID: 596621417}
-  - {fileID: 1779680373}
-  - {fileID: 67579442}
   waveNum: 1
 --- !u!1 &1612230269
 GameObject:
@@ -8220,7 +8217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1779680374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8291,7 +8288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e693740ecb3ba9049bab882ece79ed51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyToSpawn: {fileID: 2147515743384985413, guid: f75f13bf099d4e54bb0b33b57ed71190, type: 3}
+  enemyToSpawn: {fileID: 2147515743384985413, guid: ce9225f5317e20245b19c1f15c50817d, type: 3}
 --- !u!1 &1796180506
 GameObject:
   m_ObjectHideFlags: 0

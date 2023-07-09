@@ -78,7 +78,7 @@ public class Projectile : MonoBehaviour
 
     void LinearProjectileUpdateBehavior()
     {
-        if(linearXDist < 0) { GetComponent<SpriteRenderer>().flipX = true; }
+        if(linearXDist > 0) { GetComponent<SpriteRenderer>().flipX = true; }
         MoveInDirection(linearXDist, 0);
     }
 

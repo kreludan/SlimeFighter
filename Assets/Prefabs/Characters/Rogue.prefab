@@ -43,9 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6acadcff5b6431429f597d2673584cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackLeft: {fileID: 8736979785937864411, guid: 8a2a47cccca87ee4398a7d80e0214045, type: 3}
-  attackLower: {fileID: 8736979785937864411, guid: 8a2a47cccca87ee4398a7d80e0214045, type: 3}
-  attackLowerLeft: {fileID: 8736979785937864411, guid: 8a2a47cccca87ee4398a7d80e0214045, type: 3}
+  attackLeft: {fileID: 8736979785937864411, guid: 884b1bc011641894aa18f3b17c83abbf, type: 3}
+  attackLower: {fileID: 8736979785937864411, guid: 884b1bc011641894aa18f3b17c83abbf, type: 3}
+  attackLowerLeft: {fileID: 8736979785937864411, guid: 884b1bc011641894aa18f3b17c83abbf, type: 3}
   spawnNow: 0
 --- !u!1 &2147515743384985413
 GameObject:
@@ -60,9 +60,9 @@ GameObject:
   - component: {fileID: 2147515743384985416}
   - component: {fileID: 2147515743384985415}
   - component: {fileID: 2147515743384985414}
-  - component: {fileID: 5910510924056968365}
+  - component: {fileID: 2536096128463742131}
   m_Layer: 0
-  m_Name: Mage
+  m_Name: Rogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +124,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -3268116876886179480, guid: dac3085d361bc9146b42f7e8bf09e6ad, type: 3}
+  m_Sprite: {fileID: 5796152670160262247, guid: b778b85cc246b3c438a40b091cd8a125, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -192,7 +192,7 @@ Animator:
   m_GameObject: {fileID: 2147515743384985413}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: feb4a5542e3837e4e865fa9b7e2fdda6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 53e249739c343c14788b749643abe329, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -203,7 +203,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5910510924056968365
+--- !u!114 &2536096128463742131
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2147515743384985413}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c039f87f28dc9d74aaafc428c21fd5f5, type: 3}
+  m_Script: {fileID: 11500000, guid: b06460ef115da7049a85f9884c3f4ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
@@ -222,9 +222,11 @@ MonoBehaviour:
   spawnPosnValue: 0
   attackCooldownFrames: 0
   recoveryFrames: 0
-  characterSpeed: 0.4
+  destroyChar: 0
+  characterSpeed: 0.7
   rb2d: {fileID: 2147515743384985415}
   hitbox: {fileID: 0}
+  waveNum: 0
   walkCycleLength: 60
   doneAttack: 0
 --- !u!1 &2147515743416389047

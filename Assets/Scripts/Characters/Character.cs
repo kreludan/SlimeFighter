@@ -181,6 +181,10 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void setDirX(CharDirX chardir)
+    {
+        dirX = chardir;
+    }
 
     public void TakeDamage(int damage)
     {
