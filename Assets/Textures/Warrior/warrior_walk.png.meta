@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: a6611b258b568aa42b14342d92115168
+guid: f22302f33e9b5674886357b9d63e8b76
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1594208962013999350
-    second: mage_projectile_0
+      213: 8191701575316586901
+    second: warrior_walk_0
   - first:
-      213: -3205476955811340113
-    second: mage_projectile_1
+      213: -6940346117042505896
+    second: warrior_walk_1
   - first:
-      213: -3614536412910391710
-    second: mage_projectile_2
+      213: 8587429293209776344
+    second: warrior_walk_2
   - first:
-      213: 2974695338828145484
-    second: mage_projectile_3
+      213: -6447730544031582892
+    second: warrior_walk_3
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -100,17 +100,29 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mage_projectile_0
+      name: warrior_walk_0
       rect:
         serializedVersion: 2
-        x: 27
-        y: 26
-        width: 11
-        height: 16
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f0b69eba94cf1610800000000000000
-      internalID: 1594208962013999350
+      spriteID: 591c0c66e25cea170800000000000000
+      internalID: 8191701575316586901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mage_projectile_1
+      name: warrior_walk_1
       rect:
         serializedVersion: 2
-        x: 90
-        y: 26
-        width: 12
-        height: 17
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa02a2921bbd383d0800000000000000
-      internalID: -3205476955811340113
+      spriteID: 8577b636affeeaf90800000000000000
+      internalID: -6940346117042505896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mage_projectile_2
+      name: warrior_walk_2
       rect:
         serializedVersion: 2
-        x: 154
-        y: 26
-        width: 12
-        height: 20
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26ee2c8784696ddc0800000000000000
-      internalID: -3614536412910391710
+      spriteID: 8d07d8ba17dac2770800000000000000
+      internalID: 8587429293209776344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mage_projectile_3
+      name: warrior_walk_3
       rect:
         serializedVersion: 2
-        x: 218
-        y: 26
-        width: 12
-        height: 22
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,8 +193,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c43acd966ad384920800000000000000
-      internalID: 2974695338828145484
+      spriteID: 455bf835b3f0586a0800000000000000
+      internalID: -6447730544031582892
       vertices: []
       indices: 
       edges: []
