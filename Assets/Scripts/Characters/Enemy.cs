@@ -9,13 +9,17 @@ public class Enemy : Character
     public Rigidbody2D rb2d;
     public GameObject hitbox;
 
+    float diagonalUnit = Mathf.Sqrt(2) / 2;
+
     public override void Update()
     {
         base.Update();
         //Debug.Log("woo");
 
-        MoveLeft();
+        //MoveLeft();
+        //MoveDirPlayer();
         UpdateLocalHitboxPosition();
+        MoveDirPlayer();
     }
 
     private void UpdateLocalHitboxPosition()
@@ -26,27 +30,66 @@ public class Enemy : Character
         }
     }
 
+    public void MoveDirPlayer()
+    {
+        GameObject player = GameObject.Find("Player");
+        if(player == null) { return; }
+        float xDist = player.transform.position.x - transform.position.x;
+        float yDist = player.transform.position.y - transform.position.y;
+        if (Mathf.Abs(xDist) <= 0.1) xDist = 0;
+        if (Mathf.Abs(yDist) <= 0.1) yDist = 0;
+        xDist = xDist != 0 ? Mathf.Sign(xDist) : 0;
+        yDist = yDist != 0 ? Mathf.Sign(yDist) : 0;
+        if (xDist != 0 && yDist != 0)
+        {
+            xDist *= diagonalUnit;
+            yDist *= diagonalUnit;
+        }
+        MoveInDirection(xDist, yDist);
+    }
 
-    void MoveLeft()
+
+    public void MoveLeft()
     {
         MoveInDirection(-1f, 0f);
     }
 
-    void MoveRight()
+    public void MoveRight()
     {
         MoveInDirection(1f, 0f);
     }
 
-    void MoveUp()
+    public void MoveUp()
     {
         MoveInDirection(0f, 1f);
     }
 
-    void MoveDown()
+    public void MoveDown()
     {
+        MoveInDirection(0f, -1f);
     }
 
-    void MoveInDirection(float xDir, float yDir)
+    public void MoveUpLeft()
+    {
+        MoveInDirection(-diagonalUnit, diagonalUnit);
+    }
+
+    public void MoveUpRight()
+    {
+        MoveInDirection(diagonalUnit, diagonalUnit);
+    }
+
+    public void MoveDownLeft()
+    {
+        MoveInDirection(-diagonalUnit, -diagonalUnit);
+    }
+
+    public void MoveDownRight()
+    {
+        MoveInDirection(diagonalUnit, -diagonalUnit);
+    }
+
+    public void MoveInDirection(float xDir, float yDir)
     {
         Orient(xDir, yDir);
         HandleAnimation(xDir, yDir);
@@ -54,9 +97,6 @@ public class Enemy : Character
         rb2d.MovePosition(rb2d.position + velocity * Time.fixedDeltaTime);
         transform.position = rb2d.position + velocity * Time.fixedDeltaTime;
     }
-
-
-
     private void HandleAnimation(float movementX, float movementY)
     {
         if (GetComponent<Character>().CurrState == Character.CharState.HURT)

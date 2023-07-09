@@ -131,18 +131,26 @@ public class Character : MonoBehaviour
     private void UpdateSpawnerPosition()
     {
         Vector3 spawnerPosn = new Vector3();
+        float spawnValX = spawnPosnValue;
+        float spawnValY = spawnPosnValue;
+        if (!(dirX == CharDirX.NEUTRAL || dirY == CharDirY.NEUTRAL))
+        {
+            spawnValX -= 0.2f;
+            spawnValY -= 0.3f;
+        }
         spawnerPosn.x = dirX switch
         {
-            CharDirX.RIGHT => spawnPosnValue,
-            CharDirX.LEFT => -spawnPosnValue,
+            CharDirX.RIGHT => spawnValX,
+            CharDirX.LEFT => -spawnValX,
             _ => 0
         };
         spawnerPosn.y = dirY switch
         {
-            CharDirY.UP => spawnPosnValue,
-            CharDirY.DOWN => -spawnPosnValue,
+            CharDirY.UP => spawnValY,
+            CharDirY.DOWN => -spawnValY,
             _ => 0
         };
+
         spawner.transform.localPosition = spawnerPosn;
     }
 
