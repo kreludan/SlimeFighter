@@ -26,13 +26,14 @@ public class RogueEnemy : Enemy
         GameObject player = GameObject.Find("Player");
         if (transform.position.x < player.transform.position.x)
         {
-            Orient(1, 0);
-            setDirX(CharDirX.RIGHT);
+            Orient(-1, 0);
+            setDirX(CharDirX.LEFT);
         }
         else
         {
             Orient(-1, 0);
-            setDirX(CharDirX.LEFT);
+            setDirX(CharDirX.RIGHT);
+            GetComponent<SpriteRenderer>().flipX = true;
         }
         if (frameNumTracker <= walkCycleLength)
         {
@@ -41,6 +42,7 @@ public class RogueEnemy : Enemy
         }
         else if (doneAttack == false)
         {
+            MoveVerticalDirPlayer();
             MoveInDirection(0, 0, true);
         }
         else

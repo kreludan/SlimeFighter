@@ -21,6 +21,15 @@ public class Hitbox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.transform.name.Contains("Wall"))
+        {
+            if(transform.parent.GetComponent<Projectile>().destroyOnContact == true)
+            {
+                transform.parent.GetComponent<Projectile>().destroyNow = true;
+            }
+        }
+
+        Debug.Log(transform.parent.name + " AND " + collision.transform.name);
         //Debug.Log(transform.parent.name + " collided with " + collision.transform.name);
     }
 

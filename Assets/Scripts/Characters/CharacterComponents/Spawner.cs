@@ -10,12 +10,13 @@ public class Spawner : MonoBehaviour
     public GameObject attackLowerLeft;
 
     public bool spawnNow;
+    public bool spawnLeftNow;
 
     // Start is called before the first frame update
     void Start()
     {
         spawnNow = false;
-        
+        spawnLeftNow = false;
     }
 
     public void Update()
@@ -26,6 +27,20 @@ public class Spawner : MonoBehaviour
             SpawnAttack(c.DirX, c.DirY, false);
             spawnNow = false;
         }
+
+        if (spawnLeftNow)
+        {
+            Character c = GetComponentInParent<Character>();
+            SpawnAttackLeft(c.DirX, c.DirY, false);
+            spawnNow = false;
+        }
+    }
+
+    public void SpawnAttackLeft(Character.CharDirX dirX, Character.CharDirY dirY, bool playerOwned = false)
+    {
+        Debug.Log(dirX);
+        GameObject newProjectile = Instantiate(attackLeft, transform.position, Quaternion.identity);
+        // Debug.Log(newProjectile + " is player owned? " + playerOwned);
     }
 
     public void SpawnAttack(Character.CharDirX dirX, Character.CharDirY dirY, bool playerOwned = false)
