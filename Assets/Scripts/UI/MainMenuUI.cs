@@ -16,9 +16,6 @@ public class MainMenuUI : MonoBehaviour
         //EventSystem.current.SetSelectedGameObject(startButton.gameObject);
         //Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = false;
-        int number = 2;
-        Debug.Log(number/10);
-        Debug.Log(number%10);
     }
 
     private void OnEnable()
